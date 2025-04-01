@@ -75,7 +75,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-lg p-6 shadow-md">
-            <h3 className="text-2xl font-bold mb-6 text-vce-red">{t('contact.quote')}</h3>
+            <h3 className="text-2xl font-bold mb-6 text-vce-red">{t('contact.info')}</h3>
             
             <form onSubmit={handleSubmit} dir={textDirection}>
               <div className="grid gap-6">

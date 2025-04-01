@@ -68,12 +68,6 @@ const Navbar = () => {
               </a>
             ))}
           </div>
-          <a 
-            href="#contact" 
-            className="vce-btn vce-btn-primary"
-          >
-            {t('nav.getQuote')}
-          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -105,13 +99,6 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a 
-            href="#contact" 
-            className="vce-btn vce-btn-primary mt-4"
-            onClick={toggleMenu}
-          >
-            {t('nav.getQuote')}
-          </a>
         </div>
       </div>
     </nav>
