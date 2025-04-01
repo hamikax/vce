@@ -3,40 +3,38 @@ import React from 'react';
 
 const About = () => {
   const stats = [
-    { label: "Founded", value: "2019" },
-    { label: "Location", value: "Misurata" },
-    { label: "Projects", value: "20+" },
-    { label: "Team Size", value: "20+" },
+    { label: "تأسست", value: "2019" },
+    { label: "الموقع", value: "مصراتة" },
+    { label: "المشاريع", value: "+20" },
+    { label: "حجم الفريق", value: "+20" },
   ];
 
   return (
     <section id="about" className="vce-section bg-gray-50">
       <div className="vce-container">
-        <h2 className="vce-heading text-center">Why VCE?</h2>
+        <h2 className="vce-heading text-center">لماذا VCE؟</h2>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-center" dir="rtl">
           {/* Content */}
           <div>
             <p className="text-lg mb-6">
-              Vivian Construction & Engineering (VCE) is a leading construction and engineering firm based in Misurata, Libya. 
-              Since our founding in 2019, we've established ourselves as the premier provider of high-quality construction 
-              and engineering services across the region.
+              فيفيان للإنشاءات والهندسة (VCE) هي شركة رائدة في مجال البناء والهندسة مقرها في مصراتة، ليبيا. 
+              منذ تأسيسنا في عام 2019، أسسنا أنفسنا كمزود رائد لخدمات البناء والهندسة عالية الجودة في جميع أنحاء المنطقة.
             </p>
             <p className="text-lg mb-6">
-              Our team of experienced professionals brings a wealth of knowledge and expertise to every project. 
-              We pride ourselves on our commitment to excellence, innovation, and customer satisfaction. 
-              Whether it's a small renovation or a large-scale construction project, we approach each job with 
-              the same level of dedication and precision.
+              يجلب فريقنا من المحترفين ذوي الخبرة ثروة من المعرفة والخبرة لكل مشروع. 
+              نحن نفخر بالتزامنا بالتميز والابتكار وإرضاء العملاء. 
+              سواء كان الأمر يتعلق بتجديد صغير أو مشروع بناء واسع النطاق، نتعامل مع كل مهمة بنفس المستوى من التفاني والدقة.
             </p>
             <p className="text-lg">
-              At VCE, we believe in building not just structures, but relationships. Our client-centered approach 
-              ensures that we understand and meet the unique needs of each project, delivering results that exceed expectations.
+              في VCE، نؤمن ببناء ليس فقط الهياكل، بل العلاقات أيضاً. يضمن نهجنا الذي يركز على العميل 
+              أننا نفهم ونلبي الاحتياجات الفريدة لكل مشروع، مما يحقق نتائج تتجاوز التوقعات.
             </p>
           </div>
           
           {/* Stats */}
           <div className="bg-vce-red text-white rounded-lg p-8 shadow-xl">
-            <h3 className="text-2xl font-bold mb-6">VCE at a Glance</h3>
+            <h3 className="text-2xl font-bold mb-6">نبذة عن VCE</h3>
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">

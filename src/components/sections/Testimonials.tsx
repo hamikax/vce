@@ -5,24 +5,24 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      content: "VCE delivered our project on time and within budget. Their attention to detail and quality of work exceeded our expectations. We look forward to working with them again in the future.",
-      author: "Ahmed Mahmoud",
-      role: "Project Director",
-      company: "Misurata Development Corp"
+      content: "قامت VCE بتنفيذ مشروعنا في الوقت المحدد وضمن الميزانية. لقد تجاوز اهتمامهم بالتفاصيل وجودة العمل توقعاتنا. نتطلع إلى العمل معهم مرة أخرى في المستقبل.",
+      author: "أحمد محمود",
+      role: "مدير المشروع",
+      company: "شركة مصراتة للتطوير"
     },
     {
       id: 2,
-      content: "Working with VCE was a pleasure from start to finish. Their team was professional, responsive, and genuinely committed to the success of our project. The result speaks for itself.",
-      author: "Sophia Khalil",
-      role: "CEO",
-      company: "Mediterranean Holdings"
+      content: "العمل مع VCE كان متعة من البداية إلى النهاية. كان فريقهم محترفًا ومتجاوبًا وملتزمًا حقًا بنجاح مشروعنا. والنتيجة تتحدث عن نفسها.",
+      author: "صوفيا خليل",
+      role: "الرئيس التنفيذي",
+      company: "مجموعة البحر المتوسط القابضة"
     },
     {
       id: 3,
-      content: "VCE's engineering expertise is second to none. They provided innovative solutions to complex problems, resulting in a project that not only met but exceeded our requirements.",
-      author: "Omar Fathi",
-      role: "Operations Manager",
-      company: "Libyan Industrial Group"
+      content: "الخبرة الهندسية لشركة VCE لا مثيل لها. لقد قدموا حلولًا مبتكرة للمشاكل المعقدة، مما أدى إلى مشروع لا يلبي متطلباتنا فحسب، بل يتجاوزها.",
+      author: "عمر فتحي",
+      role: "مدير العمليات",
+      company: "المجموعة الصناعية الليبية"
     }
   ];
 
@@ -30,10 +30,10 @@ const Testimonials = () => {
     <section className="bg-vce-blue py-16 sm:py-24">
       <div className="vce-container">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white">
-          What Our Clients Say
+          ماذا يقول عملاؤنا
         </h2>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8" dir="rtl">
           {testimonials.map((testimonial) => (
             <div 
               key={testimonial.id}
@@ -53,7 +53,7 @@ const Testimonials = () => {
               <div>
                 <p className="font-bold text-white">{testimonial.author}</p>
                 <p className="text-vce-red">
-                  {testimonial.role}, {testimonial.company}
+                  {testimonial.role}، {testimonial.company}
                 </p>
               </div>
             </div>

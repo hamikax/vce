@@ -25,11 +25,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "الرئيسية", href: "#home" },
+    { name: "من نحن", href: "#about" },
+    { name: "الخدمات", href: "#services" },
+    { name: "المشاريع", href: "#projects" },
+    { name: "اتصل بنا", href: "#contact" },
   ];
 
   return (
@@ -42,19 +42,19 @@ const Navbar = () => {
       <div className="vce-container flex justify-between items-center">
         <div className="flex items-center">
           <a href="#home" className="flex items-center">
-            <h1 className="text-3xl font-bold text-vce-blue mr-2">VCE</h1>
-            <span className="hidden md:block text-sm text-vce-black">Vivian Construction & Engineering</span>
+            <h1 className="text-3xl font-bold text-vce-blue ml-2">VCE</h1>
+            <span className="hidden md:block text-sm text-vce-black">فيفيان للإنشاءات والهندسة</span>
           </a>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <div className="flex space-x-6">
+          <div className="flex space-x-6" dir="rtl">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-vce-blue hover:text-vce-red transition-colors duration-300"
+                className="text-vce-blue hover:text-vce-red transition-colors duration-300 mx-3"
               >
                 {link.name}
               </a>
@@ -64,7 +64,7 @@ const Navbar = () => {
             href="#contact" 
             className="vce-btn vce-btn-primary"
           >
-            Get a Quote
+            احصل على عرض سعر
           </a>
         </div>
 
@@ -85,7 +85,7 @@ const Navbar = () => {
         "fixed inset-0 bg-white z-40 transition-transform duration-300 transform md:hidden",
         isOpen ? "translate-x-0" : "translate-x-full"
       )}>
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-4">
+        <div className="flex flex-col h-full justify-center items-center space-y-8 p-4" dir="rtl">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -101,7 +101,7 @@ const Navbar = () => {
             className="vce-btn vce-btn-primary mt-4"
             onClick={toggleMenu}
           >
-            Get a Quote
+            احصل على عرض سعر
           </a>
         </div>
       </div>

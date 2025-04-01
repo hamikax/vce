@@ -6,57 +6,57 @@ import { cn } from '@/lib/utils';
 const projects = [
   {
     id: 1,
-    title: "Commercial Complex",
-    category: "Construction",
-    location: "Misurata City Center",
+    title: "مجمع تجاري",
+    category: "البناء",
+    location: "وسط مدينة مصراتة",
     year: "2023",
     image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "A modern commercial complex featuring retail spaces and offices, designed with sustainability in mind."
+    description: "مجمع تجاري حديث يضم مساحات للبيع بالتجزئة ومكاتب، مصمم مع وضع الاستدامة في الاعتبار."
   },
   {
     id: 2,
-    title: "Residential Apartments",
-    category: "Construction",
-    location: "Eastern Misurata",
+    title: "شقق سكنية",
+    category: "البناء",
+    location: "شرق مصراتة",
     year: "2022",
     image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "Luxury residential apartments with modern amenities and state-of-the-art facilities."
+    description: "شقق سكنية فاخرة مع وسائل راحة حديثة ومرافق عصرية."
   },
   {
     id: 3,
-    title: "Infrastructure Development",
-    category: "Engineering",
-    location: "Misurata Industrial Zone",
+    title: "تطوير البنية التحتية",
+    category: "الهندسة",
+    location: "المنطقة الصناعية بمصراتة",
     year: "2022",
     image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "Major infrastructure project including roads, bridges, and utility systems."
+    description: "مشروع بنية تحتية رئيسي يشمل الطرق والجسور وأنظمة المرافق."
   },
   {
     id: 4,
-    title: "Public Library",
-    category: "Construction",
-    location: "Downtown Misurata",
+    title: "مكتبة عامة",
+    category: "البناء",
+    location: "وسط مصراتة",
     year: "2021",
     image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "A modern public library featuring reading spaces, digital archives, and community areas."
+    description: "مكتبة عامة حديثة تضم مساحات للقراءة وأرشيفات رقمية ومناطق مجتمعية."
   },
   {
     id: 5,
-    title: "Hospital Renovation",
-    category: "Maintenance",
-    location: "South Misurata",
+    title: "تجديد المستشفى",
+    category: "الصيانة",
+    location: "جنوب مصراتة",
     year: "2021",
     image: "https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "Complete renovation and modernization of an existing healthcare facility."
+    description: "تجديد وتحديث كامل لمرفق رعاية صحية قائم."
   },
   {
     id: 6,
-    title: "Corporate Headquarters",
-    category: "Project Management",
-    location: "Misurata Business District",
+    title: "المقر الرئيسي للشركة",
+    category: "إدارة المشاريع",
+    location: "منطقة الأعمال بمصراتة",
     year: "2020",
     image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "Design and construction of a corporate headquarters building for a major Libyan company."
+    description: "تصميم وبناء مبنى المقر الرئيسي للشركة لشركة ليبية كبرى."
   }
 ];
 
@@ -74,9 +74,9 @@ const Projects = () => {
   return (
     <section id="projects" className="vce-section bg-gray-50">
       <div className="vce-container">
-        <h2 className="vce-heading text-center">VCE in Action</h2>
+        <h2 className="vce-heading text-center">VCE في العمل</h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" dir="rtl">
           {projects.map((project) => (
             <div 
               key={project.id}
@@ -96,7 +96,7 @@ const Projects = () => {
                   onClick={() => openProjectDetails(project.id)}
                   className="vce-btn vce-btn-primary w-full"
                 >
-                  View Project
+                  عرض المشروع
                 </button>
               </div>
             </div>
@@ -110,6 +110,7 @@ const Projects = () => {
           <div 
             className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
+            dir="rtl"
           >
             {projects.filter(p => p.id === activeProject).map(project => (
               <div key={project.id}>
@@ -132,37 +133,37 @@ const Projects = () => {
                   
                   <div className="grid md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <p className="text-gray-600 font-semibold">Category:</p>
+                      <p className="text-gray-600 font-semibold">الفئة:</p>
                       <p>{project.category}</p>
                     </div>
                     <div>
-                      <p className="text-gray-600 font-semibold">Year:</p>
+                      <p className="text-gray-600 font-semibold">السنة:</p>
                       <p>{project.year}</p>
                     </div>
                     <div>
-                      <p className="text-gray-600 font-semibold">Location:</p>
+                      <p className="text-gray-600 font-semibold">الموقع:</p>
                       <p>{project.location}</p>
                     </div>
                   </div>
                   
                   <div className="mb-6">
-                    <p className="text-gray-600 font-semibold">Description:</p>
+                    <p className="text-gray-600 font-semibold">الوصف:</p>
                     <p className="mt-2">{project.description}</p>
                   </div>
                   
                   <div className="flex justify-end">
                     <button 
                       onClick={closeProjectDetails}
-                      className="vce-btn bg-gray-200 text-gray-800 hover:bg-gray-300 mr-4"
+                      className="vce-btn bg-gray-200 text-gray-800 hover:bg-gray-300 ml-4"
                     >
-                      Close
+                      إغلاق
                     </button>
                     <a 
                       href="#contact" 
                       onClick={closeProjectDetails}
                       className="vce-btn vce-btn-primary"
                     >
-                      Contact Us
+                      اتصل بنا
                     </a>
                   </div>
                 </div>
