@@ -1,12 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Navbar from '@/components/layout/Navbar';
+import Hero from '@/components/sections/Hero';
+import About from '@/components/sections/About';
+import Services from '@/components/sections/Services';
+import Projects from '@/components/sections/Projects';
+import Testimonials from '@/components/sections/Testimonials';
+import Contact from '@/components/sections/Contact';
+import Footer from '@/components/layout/Footer';
 
 const Index = () => {
+  // Scroll to hash on load
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <Hero />
+        <About />
+        <Services />
+        <Projects />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 };
