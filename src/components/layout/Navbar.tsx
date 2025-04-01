@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { language, t } = useLanguage();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -25,12 +28,14 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "الرئيسية", href: "#home" },
-    { name: "من نحن", href: "#about" },
-    { name: "الخدمات", href: "#services" },
-    { name: "المشاريع", href: "#projects" },
-    { name: "اتصل بنا", href: "#contact" },
+    { name: t('nav.home'), href: "#home" },
+    { name: t('nav.about'), href: "#about" },
+    { name: t('nav.services'), href: "#services" },
+    { name: t('nav.projects'), href: "#projects" },
+    { name: t('nav.contact'), href: "#contact" },
   ];
+
+  const textDirection = language === 'ar' ? 'rtl' : 'ltr';
 
   return (
     <nav 
@@ -43,13 +48,16 @@ const Navbar = () => {
         <div className="flex items-center">
           <a href="#home" className="flex items-center">
             <h1 className="text-3xl font-bold text-vce-blue ml-2">VCE</h1>
-            <span className="hidden md:block text-sm text-vce-black">فيفيان للإنشاءات والهندسة</span>
+            <span className="hidden md:block text-sm text-vce-black">
+              {language === 'ar' ? 'فيفيان للإنشاءات والهندسة' : 'Vivian Construction & Engineering'}
+            </span>
           </a>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <div className="flex space-x-6" dir="rtl">
+          <LanguageSwitcher />
+          <div className={`flex space-x-6 ${language === 'ar' ? 'flex-row-reverse' : ''}`} dir={textDirection}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -64,12 +72,13 @@ const Navbar = () => {
             href="#contact" 
             className="vce-btn vce-btn-primary"
           >
-            احصل على عرض سعر
+            {t('nav.getQuote')}
           </a>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center space-x-4">
+          <LanguageSwitcher />
           <button
             onClick={toggleMenu}
             className="text-vce-blue focus:outline-none"
@@ -83,9 +92,9 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div className={cn(
         "fixed inset-0 bg-white z-40 transition-transform duration-300 transform md:hidden",
-        isOpen ? "translate-x-0" : "translate-x-full"
+        isOpen ? "translate-x-0" : language === 'ar' ? "translate-x-full" : "translate-x-full"
       )}>
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-4" dir="rtl">
+        <div className={`flex flex-col h-full justify-center items-center space-y-8 p-4`} dir={textDirection}>
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -101,7 +110,7 @@ const Navbar = () => {
             className="vce-btn vce-btn-primary mt-4"
             onClick={toggleMenu}
           >
-            احصل على عرض سعر
+            {t('nav.getQuote')}
           </a>
         </div>
       </div>

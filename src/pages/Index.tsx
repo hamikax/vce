@@ -8,8 +8,11 @@ import Projects from '@/components/sections/Projects';
 import Testimonials from '@/components/sections/Testimonials';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/layout/Footer';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
+  const { language } = useLanguage();
+
   // Scroll to hash on load
   useEffect(() => {
     const hash = window.location.hash;
@@ -22,6 +25,11 @@ const Index = () => {
       }, 100);
     }
   }, []);
+
+  // Set the document's dir attribute based on language
+  useEffect(() => {
+    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+  }, [language]);
 
   return (
     <div className="flex flex-col min-h-screen">

@@ -2,9 +2,13 @@
 import React, { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
   const { toast } = useToast();
+  const { language, t } = useLanguage();
+  const textDirection = language === 'ar' ? 'rtl' : 'ltr';
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,8 +31,10 @@ const Contact = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
-        title: "تم إرسال الرسالة!",
-        description: "لقد تلقينا رسالتك وسنعاود التواصل معك قريبًا.",
+        title: language === 'ar' ? "تم إرسال الرسالة!" : "Message sent!",
+        description: language === 'ar' 
+          ? "لقد تلقينا رسالتك وسنعاود التواصل معك قريبًا." 
+          : "We've received your message and will get back to you soon.",
         duration: 5000,
       });
       
@@ -46,17 +52,17 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <MapPin className="h-6 w-6" />,
-      label: "العنوان",
-      value: "123 شارع الإنشاءات، مصراتة، ليبيا"
+      label: t('contact.address'),
+      value: language === 'ar' ? "123 شارع الإنشاءات، مصراتة، ليبيا" : "123 Construction Street, Misurata, Libya"
     },
     {
       icon: <Phone className="h-6 w-6" />,
-      label: "الهاتف",
+      label: t('contact.phone.label'),
       value: "+218 91 234 5678"
     },
     {
       icon: <Mail className="h-6 w-6" />,
-      label: "البريد الإلكتروني",
+      label: t('contact.email.label'),
       value: "info@vce-construction.com"
     }
   ];
@@ -64,19 +70,19 @@ const Contact = () => {
   return (
     <section id="contact" className="vce-section">
       <div className="vce-container">
-        <h2 className="vce-heading text-center">اتصل بـ VCE</h2>
+        <h2 className="vce-heading text-center">{t('contact.title')}</h2>
         
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-lg p-6 shadow-md">
-            <h3 className="text-2xl font-bold mb-6 text-vce-red">احصل على عرض سعر</h3>
+            <h3 className="text-2xl font-bold mb-6 text-vce-red">{t('contact.quote')}</h3>
             
-            <form onSubmit={handleSubmit} dir="rtl">
+            <form onSubmit={handleSubmit} dir={textDirection}>
               <div className="grid gap-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-700">
-                      الاسم *
+                      {t('contact.name')}
                     </label>
                     <input
                       type="text"
@@ -90,7 +96,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-700">
-                      البريد الإلكتروني *
+                      {t('contact.email')}
                     </label>
                     <input
                       type="email"
@@ -108,7 +114,7 @@ const Contact = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-700">
-                      رقم الهاتف
+                      {t('contact.phone')}
                     </label>
                     <input
                       type="tel"
@@ -122,7 +128,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-700">
-                      الموضوع *
+                      {t('contact.subject')}
                     </label>
                     <select
                       id="subject"
@@ -132,19 +138,19 @@ const Contact = () => {
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-vce-blue"
                     >
-                      <option value="">اختر خدمة</option>
-                      <option value="Construction">البناء</option>
-                      <option value="Engineering">الهندسة</option>
-                      <option value="Project Management">إدارة المشاريع</option>
-                      <option value="Maintenance">الصيانة</option>
-                      <option value="Other">أخرى</option>
+                      <option value="">{t('contact.chooseService')}</option>
+                      <option value="Construction">{t('contact.construction')}</option>
+                      <option value="Engineering">{t('contact.engineering')}</option>
+                      <option value="Project Management">{t('contact.projectManagement')}</option>
+                      <option value="Maintenance">{t('contact.maintenance')}</option>
+                      <option value="Other">{t('contact.other')}</option>
                     </select>
                   </div>
                 </div>
                 
                 <div>
                   <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-700">
-                    رسالتك *
+                    {t('contact.message')}
                   </label>
                   <textarea
                     id="message"
@@ -163,7 +169,7 @@ const Contact = () => {
                     className="vce-btn vce-btn-primary w-full"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'جاري الإرسال...' : 'إرسال الرسالة'}
+                    {isSubmitting ? t('contact.sending') : t('contact.send')}
                   </button>
                 </div>
               </div>
@@ -171,8 +177,8 @@ const Contact = () => {
           </div>
           
           {/* Contact Information and Map */}
-          <div dir="rtl">
-            <h3 className="text-2xl font-bold mb-6 text-vce-blue">معلومات الاتصال</h3>
+          <div dir={textDirection}>
+            <h3 className="text-2xl font-bold mb-6 text-vce-blue">{t('contact.info')}</h3>
             
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
@@ -180,7 +186,7 @@ const Contact = () => {
                   <div className="flex-shrink-0 mt-1 text-vce-blue">
                     {info.icon}
                   </div>
-                  <div className="mr-4">
+                  <div className={`${language === 'ar' ? 'mr-4' : 'ml-4'}`}>
                     <p className="font-medium">{info.label}</p>
                     <p className="text-gray-600">{info.value}</p>
                   </div>
@@ -193,8 +199,8 @@ const Contact = () => {
               <div className="w-full h-full flex items-center justify-center bg-gray-200">
                 <div className="text-center p-4">
                   <MapPin className="h-8 w-8 mx-auto mb-2 text-vce-red" />
-                  <p className="text-gray-600">خريطة مصراتة، ليبيا</p>
-                  <p className="text-sm text-gray-500">(ستظهر هنا خريطة تفاعلية)</p>
+                  <p className="text-gray-600">{language === 'ar' ? 'خريطة مصراتة، ليبيا' : 'Map of Misurata, Libya'}</p>
+                  <p className="text-sm text-gray-500">{language === 'ar' ? '(ستظهر هنا خريطة تفاعلية)' : '(Interactive map would appear here)'}</p>
                 </div>
               </div>
             </div>

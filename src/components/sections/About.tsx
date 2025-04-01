@@ -1,40 +1,40 @@
 
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { language, t } = useLanguage();
+  const textDirection = language === 'ar' ? 'rtl' : 'ltr';
+  
   const stats = [
-    { label: "تأسست", value: "2019" },
-    { label: "الموقع", value: "مصراتة" },
-    { label: "المشاريع", value: "+20" },
-    { label: "حجم الفريق", value: "+20" },
+    { label: t('about.stats.founded'), value: "2019" },
+    { label: t('about.stats.location'), value: language === 'ar' ? "مصراتة" : "Misurata" },
+    { label: t('about.stats.projects'), value: "+20" },
+    { label: t('about.stats.team'), value: "+20" },
   ];
 
   return (
     <section id="about" className="vce-section bg-gray-50">
       <div className="vce-container">
-        <h2 className="vce-heading text-center">لماذا VCE؟</h2>
+        <h2 className="vce-heading text-center">{t('about.title')}</h2>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center" dir="rtl">
+        <div className={`grid md:grid-cols-2 gap-12 items-center`} dir={textDirection}>
           {/* Content */}
           <div>
             <p className="text-lg mb-6">
-              فيفيان للإنشاءات والهندسة (VCE) هي شركة رائدة في مجال البناء والهندسة مقرها في مصراتة، ليبيا. 
-              منذ تأسيسنا في عام 2019، أسسنا أنفسنا كمزود رائد لخدمات البناء والهندسة عالية الجودة في جميع أنحاء المنطقة.
+              {t('about.paragraph1')}
             </p>
             <p className="text-lg mb-6">
-              يجلب فريقنا من المحترفين ذوي الخبرة ثروة من المعرفة والخبرة لكل مشروع. 
-              نحن نفخر بالتزامنا بالتميز والابتكار وإرضاء العملاء. 
-              سواء كان الأمر يتعلق بتجديد صغير أو مشروع بناء واسع النطاق، نتعامل مع كل مهمة بنفس المستوى من التفاني والدقة.
+              {t('about.paragraph2')}
             </p>
             <p className="text-lg">
-              في VCE، نؤمن ببناء ليس فقط الهياكل، بل العلاقات أيضاً. يضمن نهجنا الذي يركز على العميل 
-              أننا نفهم ونلبي الاحتياجات الفريدة لكل مشروع، مما يحقق نتائج تتجاوز التوقعات.
+              {t('about.paragraph3')}
             </p>
           </div>
           
           {/* Stats */}
           <div className="bg-vce-red text-white rounded-lg p-8 shadow-xl">
-            <h3 className="text-2xl font-bold mb-6">نبذة عن VCE</h3>
+            <h3 className="text-2xl font-bold mb-6">{t('about.stats.title')}</h3>
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">

@@ -1,67 +1,70 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-
-// Project data
-const projects = [
-  {
-    id: 1,
-    title: "مجمع تجاري",
-    category: "البناء",
-    location: "وسط مدينة مصراتة",
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "مجمع تجاري حديث يضم مساحات للبيع بالتجزئة ومكاتب، مصمم مع وضع الاستدامة في الاعتبار."
-  },
-  {
-    id: 2,
-    title: "شقق سكنية",
-    category: "البناء",
-    location: "شرق مصراتة",
-    year: "2022",
-    image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "شقق سكنية فاخرة مع وسائل راحة حديثة ومرافق عصرية."
-  },
-  {
-    id: 3,
-    title: "تطوير البنية التحتية",
-    category: "الهندسة",
-    location: "المنطقة الصناعية بمصراتة",
-    year: "2022",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "مشروع بنية تحتية رئيسي يشمل الطرق والجسور وأنظمة المرافق."
-  },
-  {
-    id: 4,
-    title: "مكتبة عامة",
-    category: "البناء",
-    location: "وسط مصراتة",
-    year: "2021",
-    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "مكتبة عامة حديثة تضم مساحات للقراءة وأرشيفات رقمية ومناطق مجتمعية."
-  },
-  {
-    id: 5,
-    title: "تجديد المستشفى",
-    category: "الصيانة",
-    location: "جنوب مصراتة",
-    year: "2021",
-    image: "https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "تجديد وتحديث كامل لمرفق رعاية صحية قائم."
-  },
-  {
-    id: 6,
-    title: "المقر الرئيسي للشركة",
-    category: "إدارة المشاريع",
-    location: "منطقة الأعمال بمصراتة",
-    year: "2020",
-    image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "تصميم وبناء مبنى المقر الرئيسي للشركة لشركة ليبية كبرى."
-  }
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState<number | null>(null);
+  const { language, t } = useLanguage();
+  const textDirection = language === 'ar' ? 'rtl' : 'ltr';
+
+  // Project data with translations
+  const projects = [
+    {
+      id: 1,
+      title: language === 'ar' ? "مجمع تجاري" : "Commercial Complex",
+      category: language === 'ar' ? "البناء" : "Construction",
+      location: language === 'ar' ? "وسط مدينة مصراتة" : "Downtown Misurata",
+      year: "2023",
+      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      description: language === 'ar' ? "مجمع تجاري حديث يضم مساحات للبيع بالتجزئة ومكاتب، مصمم مع وضع الاستدامة في الاعتبار." : "A modern commercial complex featuring retail spaces and offices, designed with sustainability in mind."
+    },
+    {
+      id: 2,
+      title: language === 'ar' ? "شقق سكنية" : "Residential Apartments",
+      category: language === 'ar' ? "البناء" : "Construction",
+      location: language === 'ar' ? "شرق مصراتة" : "East Misurata",
+      year: "2022",
+      image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      description: language === 'ar' ? "شقق سكنية فاخرة مع وسائل راحة حديثة ومرافق عصرية." : "Luxury residential apartments with modern amenities and contemporary facilities."
+    },
+    {
+      id: 3,
+      title: language === 'ar' ? "تطوير البنية التحتية" : "Infrastructure Development",
+      category: language === 'ar' ? "الهندسة" : "Engineering",
+      location: language === 'ar' ? "المنطقة الصناعية بمصراتة" : "Misurata Industrial Zone",
+      year: "2022",
+      image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      description: language === 'ar' ? "مشروع بنية تحتية رئيسي يشمل الطرق والجسور وأنظمة المرافق." : "A major infrastructure project including roads, bridges, and utility systems."
+    },
+    {
+      id: 4,
+      title: language === 'ar' ? "مكتبة عامة" : "Public Library",
+      category: language === 'ar' ? "البناء" : "Construction",
+      location: language === 'ar' ? "وسط مصراتة" : "Central Misurata",
+      year: "2021",
+      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      description: language === 'ar' ? "مكتبة عامة حديثة تضم مساحات للقراءة وأرشيفات رقمية ومناطق مجتمعية." : "A modern public library featuring reading spaces, digital archives, and community areas."
+    },
+    {
+      id: 5,
+      title: language === 'ar' ? "تجديد المستشفى" : "Hospital Renovation",
+      category: language === 'ar' ? "الصيانة" : "Maintenance",
+      location: language === 'ar' ? "جنوب مصراتة" : "South Misurata",
+      year: "2021",
+      image: "https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      description: language === 'ar' ? "تجديد وتحديث كامل لمرفق رعاية صحية قائم." : "Complete renovation and modernization of an existing healthcare facility."
+    },
+    {
+      id: 6,
+      title: language === 'ar' ? "المقر الرئيسي للشركة" : "Corporate Headquarters",
+      category: language === 'ar' ? "إدارة المشاريع" : "Project Management",
+      location: language === 'ar' ? "منطقة الأعمال بمصراتة" : "Misurata Business District",
+      year: "2020",
+      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      description: language === 'ar' ? "تصميم وبناء مبنى المقر الرئيسي للشركة لشركة ليبية كبرى." : "Design and construction of a corporate headquarters building for a major Libyan company."
+    }
+  ];
 
   const openProjectDetails = (id: number) => {
     setActiveProject(id);
@@ -74,9 +77,9 @@ const Projects = () => {
   return (
     <section id="projects" className="vce-section bg-gray-50">
       <div className="vce-container">
-        <h2 className="vce-heading text-center">VCE في العمل</h2>
+        <h2 className="vce-heading text-center">{t('projects.title')}</h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" dir="rtl">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" dir={textDirection}>
           {projects.map((project) => (
             <div 
               key={project.id}
@@ -96,7 +99,7 @@ const Projects = () => {
                   onClick={() => openProjectDetails(project.id)}
                   className="vce-btn vce-btn-primary w-full"
                 >
-                  عرض المشروع
+                  {t('projects.viewProject')}
                 </button>
               </div>
             </div>
@@ -110,7 +113,7 @@ const Projects = () => {
           <div 
             className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
-            dir="rtl"
+            dir={textDirection}
           >
             {projects.filter(p => p.id === activeProject).map(project => (
               <div key={project.id}>
@@ -133,21 +136,21 @@ const Projects = () => {
                   
                   <div className="grid md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <p className="text-gray-600 font-semibold">الفئة:</p>
+                      <p className="text-gray-600 font-semibold">{t('projects.category')}</p>
                       <p>{project.category}</p>
                     </div>
                     <div>
-                      <p className="text-gray-600 font-semibold">السنة:</p>
+                      <p className="text-gray-600 font-semibold">{t('projects.year')}</p>
                       <p>{project.year}</p>
                     </div>
                     <div>
-                      <p className="text-gray-600 font-semibold">الموقع:</p>
+                      <p className="text-gray-600 font-semibold">{t('projects.location')}</p>
                       <p>{project.location}</p>
                     </div>
                   </div>
                   
                   <div className="mb-6">
-                    <p className="text-gray-600 font-semibold">الوصف:</p>
+                    <p className="text-gray-600 font-semibold">{t('projects.description')}</p>
                     <p className="mt-2">{project.description}</p>
                   </div>
                   
@@ -156,14 +159,14 @@ const Projects = () => {
                       onClick={closeProjectDetails}
                       className="vce-btn bg-gray-200 text-gray-800 hover:bg-gray-300 ml-4"
                     >
-                      إغلاق
+                      {t('projects.close')}
                     </button>
                     <a 
                       href="#contact" 
                       onClick={closeProjectDetails}
                       className="vce-btn vce-btn-primary"
                     >
-                      اتصل بنا
+                      {t('projects.contactUs')}
                     </a>
                   </div>
                 </div>

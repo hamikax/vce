@@ -1,28 +1,38 @@
 
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Testimonials = () => {
+  const { language, t } = useLanguage();
+  const textDirection = language === 'ar' ? 'rtl' : 'ltr';
+  
   const testimonials = [
     {
       id: 1,
-      content: "قامت VCE بتنفيذ مشروعنا في الوقت المحدد وضمن الميزانية. لقد تجاوز اهتمامهم بالتفاصيل وجودة العمل توقعاتنا. نتطلع إلى العمل معهم مرة أخرى في المستقبل.",
-      author: "أحمد محمود",
-      role: "مدير المشروع",
-      company: "شركة مصراتة للتطوير"
+      content: language === 'ar' 
+        ? "قامت VCE بتنفيذ مشروعنا في الوقت المحدد وضمن الميزانية. لقد تجاوز اهتمامهم بالتفاصيل وجودة العمل توقعاتنا. نتطلع إلى العمل معهم مرة أخرى في المستقبل."
+        : "VCE completed our project on time and within budget. Their attention to detail and quality of work exceeded our expectations. We look forward to working with them again in the future.",
+      author: language === 'ar' ? "أحمد محمود" : "Ahmed Mahmoud",
+      role: language === 'ar' ? "مدير المشروع" : "Project Manager",
+      company: language === 'ar' ? "شركة مصراتة للتطوير" : "Misurata Development Company"
     },
     {
       id: 2,
-      content: "العمل مع VCE كان متعة من البداية إلى النهاية. كان فريقهم محترفًا ومتجاوبًا وملتزمًا حقًا بنجاح مشروعنا. والنتيجة تتحدث عن نفسها.",
-      author: "صوفيا خليل",
-      role: "الرئيس التنفيذي",
-      company: "مجموعة البحر المتوسط القابضة"
+      content: language === 'ar'
+        ? "العمل مع VCE كان متعة من البداية إلى النهاية. كان فريقهم محترفًا ومتجاوبًا وملتزمًا حقًا بنجاح مشروعنا. والنتيجة تتحدث عن نفسها."
+        : "Working with VCE was a pleasure from start to finish. Their team was professional, responsive, and truly committed to the success of our project. The result speaks for itself.",
+      author: language === 'ar' ? "صوفيا خليل" : "Sofia Khalil",
+      role: language === 'ar' ? "الرئيس التنفيذي" : "CEO",
+      company: language === 'ar' ? "مجموعة البحر المتوسط القابضة" : "Mediterranean Holding Group"
     },
     {
       id: 3,
-      content: "الخبرة الهندسية لشركة VCE لا مثيل لها. لقد قدموا حلولًا مبتكرة للمشاكل المعقدة، مما أدى إلى مشروع لا يلبي متطلباتنا فحسب، بل يتجاوزها.",
-      author: "عمر فتحي",
-      role: "مدير العمليات",
-      company: "المجموعة الصناعية الليبية"
+      content: language === 'ar'
+        ? "الخبرة الهندسية لشركة VCE لا مثيل لها. لقد قدموا حلولًا مبتكرة للمشاكل المعقدة، مما أدى إلى مشروع لا يلبي متطلباتنا فحسب، بل يتجاوزها."
+        : "The engineering expertise of VCE is unmatched. They provided innovative solutions to complex problems, resulting in a project that not only meets our requirements but exceeds them.",
+      author: language === 'ar' ? "عمر فتحي" : "Omar Fathi",
+      role: language === 'ar' ? "مدير العمليات" : "Operations Director",
+      company: language === 'ar' ? "المجموعة الصناعية الليبية" : "Libyan Industrial Group"
     }
   ];
 
@@ -30,10 +40,10 @@ const Testimonials = () => {
     <section className="bg-vce-blue py-16 sm:py-24">
       <div className="vce-container">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white">
-          ماذا يقول عملاؤنا
+          {t('testimonials.title')}
         </h2>
         
-        <div className="grid md:grid-cols-3 gap-8" dir="rtl">
+        <div className={`grid md:grid-cols-3 gap-8`} dir={textDirection}>
           {testimonials.map((testimonial) => (
             <div 
               key={testimonial.id}
@@ -53,7 +63,7 @@ const Testimonials = () => {
               <div>
                 <p className="font-bold text-white">{testimonial.author}</p>
                 <p className="text-vce-red">
-                  {testimonial.role}، {testimonial.company}
+                  {testimonial.role}, {testimonial.company}
                 </p>
               </div>
             </div>
