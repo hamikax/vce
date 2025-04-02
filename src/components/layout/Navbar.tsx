@@ -55,9 +55,11 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          <LanguageSwitcher />
-          <div className={`flex space-x-6 ${language === 'ar' ? 'flex-row-reverse' : ''}`} dir={textDirection}>
+        <div className="hidden md:flex items-center">
+          <div className="mr-8">
+            <LanguageSwitcher />
+          </div>
+          <div className={`flex space-x-6 ${language === 'ar' ? 'flex-row-reverse space-x-reverse' : ''}`} dir={textDirection}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
