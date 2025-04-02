@@ -57,12 +57,12 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: language === 'ar' ? "المقر الرئيسي للشركة" : "Corporate Headquarters",
-      category: language === 'ar' ? "إدارة المشاريع" : "Project Management",
-      location: language === 'ar' ? "منطقة الأعمال بمصراتة" : "Misurata Business District",
-      year: "2020",
-      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      description: language === 'ar' ? "تصميم وبناء مبنى المقر الرئيسي للشركة لشركة ليبية كبرى." : "Design and construction of a corporate headquarters building for a major Libyan company."
+      title: language === 'ar' ? "عمل خاص في منطقه الشواهده" : "Special work in Al-Shawahdeh area",
+      category: language === 'ar' ? "أعمال الطرق" : "Road Works",
+      location: language === 'ar' ? "منطقة الشواهده" : "Al-Shawahdeh area",
+      year: "2021",
+      image: "/lovable-uploads/fe9d4a13-878b-4e19-baac-233cf804c1db.png",
+      description: language === 'ar' ? "مشروع طرق متخصص في منطقة الشواهدة يتضمن تحسين البنية التحتية وتطوير شبكة الطرق المحلية." : "Specialized road project in Al-Shawahdeh area including infrastructure improvement and development of the local road network."
     }
   ];
 
@@ -117,6 +117,7 @@ const Projects = () => {
           >
             {projects.filter(p => p.id === activeProject).map(project => (
               <div key={project.id}>
+                {/* Customize gallery images based on project ID */}
                 {project.id === 1 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
                     <img 
@@ -204,6 +205,24 @@ const Projects = () => {
                     <img 
                       src="/lovable-uploads/8565d59c-768a-4dd7-b61d-266c66f6c3ed.png"
                       alt="M.C.O Layer Spraying Works"
+                      className="w-full h-auto rounded md:col-span-2"
+                    />
+                  </div>
+                ) : project.id === 6 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
+                    <img 
+                      src="/lovable-uploads/fe9d4a13-878b-4e19-baac-233cf804c1db.png"
+                      alt="Special work in Al-Shawahdeh area" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/637ab766-0ca3-4839-a145-c7059bbf6666.png"
+                      alt="Special work in Al-Shawahdeh area" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/fe9d4a13-878b-4e19-baac-233cf804c1db.png"
+                      alt="Special work in Al-Shawahdeh area"
                       className="w-full h-auto rounded md:col-span-2"
                     />
                   </div>
