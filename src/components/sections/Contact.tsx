@@ -1,48 +1,11 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 
 const Contact = () => {
   const { language, t } = useLanguage();
   const textDirection = language === 'ar' ? 'rtl' : 'ltr';
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  
-  // Coordinates for the location (Misrata, Libya)
-  // These coordinates correspond to https://maps.app.goo.gl/UJrbitZog7ogtP688
-  const coordinates = [15.0925, 32.3751]; // [longitude, latitude]
-  
-  useEffect(() => {
-    if (!mapContainer.current || map.current) return;
-
-    // You need to replace this with your actual Mapbox public token
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZXhhbXBsZXRva2VuIiwiYSI6ImV4YW1wbGV0b2tlbiJ9.exampletoken';
-    
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: coordinates,
-      zoom: 14
-    });
-
-    // Add navigation controls
-    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
-    
-    // Add marker at the location
-    new mapboxgl.Marker({ color: '#E11D48' })
-      .setLngLat(coordinates)
-      .addTo(map.current);
-      
-    return () => {
-      if (map.current) {
-        map.current.remove();
-        map.current = null;
-      }
-    };
-  }, []);
   
   const contactInfo = [
     {
@@ -86,14 +49,15 @@ const Contact = () => {
               ))}
             </div>
             
-            {/* Interactive Map */}
-            <div className="h-72 bg-gray-100 rounded-lg overflow-hidden mt-8">
-              <div ref={mapContainer} className="w-full h-full" />
-              <p className="text-sm text-center mt-2 text-gray-500">
-                {language === 'ar' 
-                  ? 'يرجى استبدال مفتاح Mapbox بمفتاحك الخاص للعرض الصحيح للخريطة' 
-                  : 'Please replace the Mapbox token with your own for proper map display'}
-              </p>
+            {/* Map (Placeholder) */}
+            <div className="h-72 bg-gray-200 rounded-lg overflow-hidden mt-8">
+              <div className="w-full h-full flex items-center justify-center bg-gray-200">
+                <div className="text-center p-4">
+                  <MapPin className="h-8 w-8 mx-auto mb-2 text-vce-red" />
+                  <p className="text-gray-600">{language === 'ar' ? 'خريطة مصراتة، ليبيا' : 'Map of Misurata, Libya'}</p>
+                  <p className="text-sm text-gray-500">{language === 'ar' ? '(ستظهر هنا خريطة تفاعلية)' : '(Interactive map would appear here)'}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
