@@ -54,7 +54,7 @@ const translations = {
     'services.discussProject': 'ناقش مشروعك',
     
     // Projects
-    'projects.title': 'VCE في العمل',
+    'projects.title': 'اعمالنا في VCE',
     'projects.viewProject': 'عرض المشروع',
     'projects.category': 'الفئة:',
     'projects.year': 'السنة:',
