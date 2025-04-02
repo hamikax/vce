@@ -49,7 +49,7 @@ const Services = () => {
   return (
     <section id="services" className="vce-section">
       <div className="vce-container">
-        <h2 className="vce-heading text-center">{t('services.title')}</h2>
+        <h2 className="vce-heading text-center">{language === 'ar' ? 'تواصل معنا' : 'Reach To Us'}</h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" dir={textDirection}>
           {services.map((service, index) => (
@@ -64,6 +64,15 @@ const Services = () => {
               <p className="text-gray-600 text-center">{service.description}</p>
             </div>
           ))}
+        </div>
+        
+        <div className="flex justify-center mt-10">
+          <a 
+            href="#contact" 
+            className="vce-btn vce-btn-primary"
+          >
+            {language === 'ar' ? 'اتصل بنا' : 'Contact Us'}
+          </a>
         </div>
       </div>
     </section>

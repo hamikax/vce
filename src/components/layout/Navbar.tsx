@@ -46,8 +46,8 @@ const Navbar = () => {
     >
       <div className="vce-container flex justify-between items-center">
         <div className="flex items-center">
-          <a href="#home" className="flex items-center">
-            <h1 className="text-3xl font-bold text-vce-blue ml-2">VCE</h1>
+          <a href="#home" className="flex flex-col items-center md:items-start">
+            <h1 className="text-3xl font-bold text-vce-blue">VCE</h1>
             <span className="hidden md:block text-sm text-vce-black">
               {language === 'ar' ? 'شركة فيفيان للإنشاءات والاعمال الهندسية' : 'Vivian Construction & Engineering Services'}
             </span>
