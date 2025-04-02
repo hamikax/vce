@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -21,12 +20,12 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: language === 'ar' ? "شقق سكنية" : "Residential Apartments",
-      category: language === 'ar' ? "البناء" : "Construction",
-      location: language === 'ar' ? "شرق مصراتة" : "East Misurata",
-      year: "2022",
-      image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      description: language === 'ar' ? "شقق سكنية فاخرة مع وسائل راحة حديثة ومرافق عصرية." : "Luxury residential apartments with modern amenities and contemporary facilities."
+      title: language === 'ar' ? "تنفيذ مشروع رصف الطرق في منتجع مصراتة" : "Implementation of the road paving project in Misurata Resort",
+      category: language === 'ar' ? "البنية التحتية" : "Infrastructure",
+      location: language === 'ar' ? "منتجع مصراتة" : "Misurata Resort",
+      year: "2023",
+      image: "/lovable-uploads/2d2f73f8-6966-4742-9824-8fe7857287de.png",
+      description: language === 'ar' ? "مشروع تطوير البنية التحتية لرصف الطرق في منتجع مصراتة السياحي، مع تركيب على جودة الطرق والمناظر الطبيعية المحيطة." : "Infrastructure development project for road paving in Misurata Resort, with a focus on road quality and surrounding landscapes."
     },
     {
       id: 3,
@@ -132,6 +131,24 @@ const Projects = () => {
                     <img 
                       src="/lovable-uploads/47f3dc8c-3817-48b0-80d1-10826321dcd6.png"
                       alt="Road paving project"
+                      className="w-full h-auto rounded md:col-span-2"
+                    />
+                  </div>
+                ) : project.id === 2 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
+                    <img 
+                      src="/lovable-uploads/2d2f73f8-6966-4742-9824-8fe7857287de.png"
+                      alt="Misurata Resort road paving" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/eeb56569-810c-4bc9-9069-c1c8f094329e.png"
+                      alt="Misurata Resort road paving" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/bd310ad2-71e1-4ace-86e8-a2621b68a29e.png"
+                      alt="Misurata Resort road paving"
                       className="w-full h-auto rounded md:col-span-2"
                     />
                   </div>
