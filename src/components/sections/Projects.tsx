@@ -12,12 +12,12 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: language === 'ar' ? "مجمع تجاري" : "Commercial Complex",
-      category: language === 'ar' ? "البناء" : "Construction",
-      location: language === 'ar' ? "وسط مدينة مصراتة" : "Downtown Misurata",
-      year: "2023",
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      description: language === 'ar' ? "مجمع تجاري حديث يضم مساحات للبيع بالتجزئة ومكاتب، مصمم مع وضع الاستدامة في الاعتبار." : "A modern commercial complex featuring retail spaces and offices, designed with sustainability in mind."
+      title: language === 'ar' ? "مشروع تعبيد الطريق بالقرب من شارع السعدون" : "Implementation of the road paving project near Saadoun Street",
+      category: language === 'ar' ? "البنية التحتية" : "Infrastructure",
+      location: language === 'ar' ? "شارع السعدون، مصراتة" : "Saadoun Street, Misurata",
+      year: "2024",
+      image: "/lovable-uploads/764e4493-158f-464c-b2a7-0bb4c167c626.png",
+      description: language === 'ar' ? "مشروع رصف طرق رئيسي لتحسين البنية التحتية للنقل في منطقة شارع السعدون بمصراتة." : "A major road paving project to improve transportation infrastructure in the Saadoun Street area of Misurata."
     },
     {
       id: 2,
@@ -117,10 +117,30 @@ const Projects = () => {
           >
             {projects.filter(p => p.id === activeProject).map(project => (
               <div key={project.id}>
-                <div 
-                  className="h-64 bg-cover bg-center" 
-                  style={{ backgroundImage: `url(${project.image})` }}
-                ></div>
+                {project.id === 1 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
+                    <img 
+                      src="/lovable-uploads/764e4493-158f-464c-b2a7-0bb4c167c626.png"
+                      alt="Road paving project" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/58819374-01be-4ebd-a520-5680cf78f10f.png"
+                      alt="Road paving project" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/47f3dc8c-3817-48b0-80d1-10826321dcd6.png"
+                      alt="Road paving project"
+                      className="w-full h-auto rounded md:col-span-2"
+                    />
+                  </div>
+                ) : (
+                  <div 
+                    className="h-64 bg-cover bg-center" 
+                    style={{ backgroundImage: `url(${project.image})` }}
+                  ></div>
+                )}
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-4">
                     <h3 className="text-2xl font-bold text-vce-blue">{project.title}</h3>
