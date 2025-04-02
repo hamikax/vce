@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -29,12 +30,12 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: language === 'ar' ? "تطوير البنية التحتية" : "Infrastructure Development",
-      category: language === 'ar' ? "الهندسة" : "Engineering",
-      location: language === 'ar' ? "المنطقة الصناعية بمصراتة" : "Misurata Industrial Zone",
-      year: "2022",
-      image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      description: language === 'ar' ? "مشروع بنية تحتية رئيسي يشمل الطرق والجسور وأنظمة المرافق." : "A major infrastructure project including roads, bridges, and utility systems."
+      title: language === 'ar' ? "اعمال الحفر و الردم لبعض المشاريع المنفذة" : "Excavation and backfilling works for various implemented projects",
+      category: language === 'ar' ? "اعمال الطرق" : "Road works",
+      location: language === 'ar' ? "مصراتة" : "Misurata",
+      year: "2025",
+      image: "/lovable-uploads/e3c4f0f2-39e2-4c28-8d27-ce5ded87826a.png",
+      description: language === 'ar' ? "مشروع متخصص في أعمال الحفر والردم باستخدام معدات ثقيلة متطورة لتحضير مواقع البناء والطرق." : "Specialized project in excavation and backfilling using advanced heavy machinery to prepare construction sites and roads."
     },
     {
       id: 4,
@@ -149,6 +150,24 @@ const Projects = () => {
                     <img 
                       src="/lovable-uploads/bd310ad2-71e1-4ace-86e8-a2621b68a29e.png"
                       alt="Misurata Resort road paving"
+                      className="w-full h-auto rounded md:col-span-2"
+                    />
+                  </div>
+                ) : project.id === 3 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
+                    <img 
+                      src="/lovable-uploads/e3c4f0f2-39e2-4c28-8d27-ce5ded87826a.png"
+                      alt="Excavation and backfilling works" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/1e2862f3-0439-48ba-97c6-d87f36a6942d.png"
+                      alt="Excavation and backfilling works" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/fd57dbaf-61e1-4423-b004-661fdfb41fda.png"
+                      alt="Excavation and backfilling works"
                       className="w-full h-auto rounded md:col-span-2"
                     />
                   </div>
