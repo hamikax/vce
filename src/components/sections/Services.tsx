@@ -65,12 +65,6 @@ const Services = () => {
             </div>
           ))}
         </div>
-        
-        <div className="mt-12 text-center">
-          <a href="#contact" className="vce-btn vce-btn-primary">
-            {t('services.discussProject')}
-          </a>
-        </div>
       </div>
     </section>
   );
