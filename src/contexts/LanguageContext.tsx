@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'ar' | 'en';
@@ -45,9 +46,11 @@ const translations = {
     'services.construction': 'بناء الطرق',
     'services.engineering': 'المعدات والخبرة',
     'services.maintenance': 'الصيانة',
+    'services.projectManagement': 'إدارة المشاريع',
     'services.construction.desc': 'متخصصون في بناء وتطوير شبكات الطرق بأعلى مستويات الجودة والمتانة لضمان بنية تحتية مستدامة.',
     'services.engineering.desc': 'نمتلك أحدث المعدات والآلات المتخصصة وفريقاً ذو خبرة واسعة في مجال هندسة الطرق ورصفها.',
     'services.maintenance.desc': 'نقدم خدمات صيانة مستمرة لضمان طول عمر المباني والهياكل وعملها.',
+    'services.projectManagement.desc': 'نوفر إدارة شاملة للمشاريع، بدءًا من التخطيط وحتى التسليم، مما يضمن تسليم المشاريع في الوقت المحدد وضمن الميزانية.',
     'services.discussProject': 'ناقش مشروعك',
     
     // Projects
@@ -133,9 +136,11 @@ const translations = {
     'services.construction': 'Road Building',
     'services.engineering': 'Equipment & Expertise',
     'services.maintenance': 'Maintenance',
+    'services.projectManagement': 'Project Management',
     'services.construction.desc': 'Specialized in building and developing road networks with the highest quality and durability standards to ensure sustainable infrastructure.',
     'services.engineering.desc': 'We own state-of-the-art specialized equipment and machinery along with a highly experienced team in road engineering and paving.',
     'services.maintenance.desc': 'We provide ongoing maintenance services to ensure the longevity and functionality of buildings and structures.',
+    'services.projectManagement.desc': 'We offer comprehensive project management, from planning to delivery, ensuring projects are completed on time and within budget.',
     'services.discussProject': 'Discuss Your Project',
     
     // Projects
