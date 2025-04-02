@@ -48,12 +48,12 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: language === 'ar' ? "تجديد المستشفى" : "Hospital Renovation",
-      category: language === 'ar' ? "الصيانة" : "Maintenance",
-      location: language === 'ar' ? "جنوب مصراتة" : "South Misurata",
-      year: "2021",
-      image: "https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      description: language === 'ar' ? "تجديد وتحديث كامل لمرفق رعاية صحية قائم." : "Complete renovation and modernization of an existing healthcare facility."
+      title: language === 'ar' ? "تنفيذ أعمال رش طبقة M.C.O" : "Implementation of M.C.O Layer Spraying Works",
+      category: language === 'ar' ? "أعمال الطرق" : "Road Works",
+      location: language === 'ar' ? "مصراتة" : "Misurata",
+      year: "2024",
+      image: "/lovable-uploads/42dbda78-0b0b-42f6-97e2-791ac668ad22.png",
+      description: language === 'ar' ? "تنفيذ أعمال رش طبقة M.C.O للطرق لتحسين جودتها ومتانتها وتعزيز البنية التحتية للطرق." : "Implementation of M.C.O layer spraying works for roads to improve quality, durability and enhance road infrastructure."
     },
     {
       id: 6,
@@ -186,6 +186,24 @@ const Projects = () => {
                     <img 
                       src="/lovable-uploads/a0545a7a-04c6-4ba2-9bcd-fe33fc0e8b97.png"
                       alt="Road paving in Tmeina agricultural area"
+                      className="w-full h-auto rounded md:col-span-2"
+                    />
+                  </div>
+                ) : project.id === 5 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
+                    <img 
+                      src="/lovable-uploads/42dbda78-0b0b-42f6-97e2-791ac668ad22.png"
+                      alt="M.C.O Layer Spraying Works" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/30eed758-6079-4c7b-a37e-3051a66eee3c.png"
+                      alt="M.C.O Layer Spraying Works" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/8565d59c-768a-4dd7-b61d-266c66f6c3ed.png"
+                      alt="M.C.O Layer Spraying Works"
                       className="w-full h-auto rounded md:col-span-2"
                     />
                   </div>
