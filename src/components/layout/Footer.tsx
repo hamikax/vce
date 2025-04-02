@@ -8,14 +8,6 @@ const Footer = () => {
   const textDirection = language === 'ar' ? 'rtl' : 'ltr';
   const currentYear = new Date().getFullYear();
   
-  const services = [
-    language === 'ar' ? "بناء الطرق" : "Road Building",
-    language === 'ar' ? "المعدات والخبرة" : "Equipment & Expertise",
-    language === 'ar' ? "الصيانة" : "Maintenance",
-    language === 'ar' ? "الاستشارات" : "Consulting",
-    language === 'ar' ? "التصميم" : "Design"
-  ];
-  
   const navLinks = [
     { name: t('nav.home'), href: "#home" },
     { name: t('nav.about'), href: "#about" },
@@ -31,7 +23,7 @@ const Footer = () => {
   return (
     <footer className="bg-vce-blue text-white">
       <div className="vce-container pt-16 pb-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" dir={textDirection}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" dir={textDirection}>
           {/* Company Info */}
           <div>
             <div className="mb-4">
@@ -68,23 +60,6 @@ const Footer = () => {
                     className="text-gray-300 hover:text-white transition-colors duration-300"
                   >
                     {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          {/* Services */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">{t('footer.services')}</h3>
-            <ul className="space-y-2">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a 
-                    href="#services"
-                    className="text-gray-300 hover:text-white transition-colors duration-300"
-                  >
-                    {service}
                   </a>
                 </li>
               ))}
