@@ -39,12 +39,12 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: language === 'ar' ? "مكتبة عامة" : "Public Library",
-      category: language === 'ar' ? "البناء" : "Construction",
-      location: language === 'ar' ? "وسط مصراتة" : "Central Misurata",
+      title: language === 'ar' ? "أعمال تنفيذ رصف طرق مقسم زراعي في منطقة طمينة/مصراتة" : "Road paving works for agricultural subdivision in Tmeina/Misurata area",
+      category: language === 'ar' ? "اعمال الطرق" : "Road works",
+      location: language === 'ar' ? "طمينة، مصراتة" : "Tmeina, Misurata",
       year: "2021",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      description: language === 'ar' ? "مكتبة عامة حديثة تضم مساحات للقراءة وأرشيفات رقمية ومناطق مجتمعية." : "A modern public library featuring reading spaces, digital archives, and community areas."
+      image: "/lovable-uploads/41158a6b-decb-4bb0-be94-59ab27125f05.png",
+      description: language === 'ar' ? "مشروع تطوير البنية التحتية للطرق في منطقة زراعية بطمينة/مصراتة لتحسين إمكانية الوصول وتعزيز التنمية المحلية." : "Road infrastructure development project in an agricultural area of Tmeina/Misurata to improve accessibility and enhance local development."
     },
     {
       id: 5,
@@ -168,6 +168,24 @@ const Projects = () => {
                     <img 
                       src="/lovable-uploads/fd57dbaf-61e1-4423-b004-661fdfb41fda.png"
                       alt="Excavation and backfilling works"
+                      className="w-full h-auto rounded md:col-span-2"
+                    />
+                  </div>
+                ) : project.id === 4 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
+                    <img 
+                      src="/lovable-uploads/41158a6b-decb-4bb0-be94-59ab27125f05.png"
+                      alt="Road paving in Tmeina agricultural area" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/cc9f227b-5166-47ad-b98b-c92e9a722a34.png"
+                      alt="Road paving in Tmeina agricultural area" 
+                      className="w-full h-auto rounded"
+                    />
+                    <img 
+                      src="/lovable-uploads/a0545a7a-04c6-4ba2-9bcd-fe33fc0e8b97.png"
+                      alt="Road paving in Tmeina agricultural area"
                       className="w-full h-auto rounded md:col-span-2"
                     />
                   </div>
