@@ -26,7 +26,7 @@ const translations = {
     'hero.projects': 'مشروع',
     'hero.location': 'مصراتة،',
     'hero.country': 'ليبيا',
-    'hero.services': 'خدماتنا',
+    'hero.services': 'خبراتنا',
     'hero.viewProjects': 'عرض المشاريع',
     'hero.scrollDown': 'اسحب للأسفل',
     
@@ -116,7 +116,7 @@ const translations = {
     'hero.projects': 'Projects',
     'hero.location': 'Misurata,',
     'hero.country': 'Libya',
-    'hero.services': 'Our Services',
+    'hero.services': 'Our Expertise',
     'hero.viewProjects': 'View Projects',
     'hero.scrollDown': 'Scroll Down',
     
