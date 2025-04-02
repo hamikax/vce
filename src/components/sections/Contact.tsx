@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
@@ -24,6 +24,8 @@ const Contact = () => {
       value: "Vivian.pe.co@gmail.com"
     }
   ];
+
+  const mapUrl = "https://maps.app.goo.gl/UJrbitZog7ogtP688?g_st=com.google.maps.preview.copy";
 
   return (
     <section id="contact" className="vce-section">
@@ -49,15 +51,18 @@ const Contact = () => {
               ))}
             </div>
             
-            {/* Map (Placeholder) */}
-            <div className="h-72 bg-gray-200 rounded-lg overflow-hidden mt-8">
-              <div className="w-full h-full flex items-center justify-center bg-gray-200">
-                <div className="text-center p-4">
-                  <MapPin className="h-8 w-8 mx-auto mb-2 text-vce-red" />
-                  <p className="text-gray-600">{language === 'ar' ? 'خريطة مصراتة، ليبيا' : 'Map of Misurata, Libya'}</p>
-                  <p className="text-sm text-gray-500">{language === 'ar' ? '(ستظهر هنا خريطة تفاعلية)' : '(Interactive map would appear here)'}</p>
-                </div>
-              </div>
+            {/* Google Maps Link */}
+            <div className="mt-8">
+              <a 
+                href={mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full p-4 bg-vce-blue text-white rounded-lg hover:bg-vce-blue/90 transition-colors"
+              >
+                <MapPin className="mr-2" />
+                {language === 'ar' ? 'عرض الموقع على الخريطة' : 'View Location on Map'}
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>
