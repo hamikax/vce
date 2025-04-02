@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Facebook } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
@@ -25,10 +25,7 @@ const Footer = () => {
   ];
   
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: "#", label: "Facebook" },
-    { icon: <Instagram size={20} />, href: "#", label: "Instagram" },
-    { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
+    { icon: <Facebook size={20} />, href: "https://www.facebook.com/share/1DznPR5Q8D/?mibextid=wwXIfr", label: "Facebook" },
   ];
 
   return (
@@ -51,6 +48,8 @@ const Footer = () => {
                   href={link.href}
                   aria-label={link.label}
                   className={`bg-white/10 hover:bg-vce-red transition-colors duration-300 p-2 rounded ${language === 'ar' ? 'ml-3' : ''}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {link.icon}
                 </a>
