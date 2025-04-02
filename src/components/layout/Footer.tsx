@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -38,7 +39,7 @@ const Footer = () => {
           <div>
             <div className="mb-4">
               <h2 className="text-3xl font-bold mb-1">VCE</h2>
-              <p className="text-sm">{language === 'ar' ? "فيفيان للإنشاءات والهندسة" : "Vivian Construction & Engineering"}</p>
+              <p className="text-sm">{language === 'ar' ? "شركة فيفيان للإنشاءات والاعمال الهندسية" : "Vivian Construction & Engineering Services"}</p>
             </div>
             <p className="mb-4 text-gray-300">
               {t('footer.tagline')}

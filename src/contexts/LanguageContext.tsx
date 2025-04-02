@@ -20,7 +20,7 @@ const translations = {
     'nav.getQuote': 'احصل على عرض سعر',
     
     // Hero
-    'hero.title': 'هندسة دقيقة منذ عام 2019',
+    'hero.title': 'مرحباً بكم في مرشد إستطلاعات شركة فيفيان للإنشاءات و الأعمال الهندسية',
     'hero.workers': 'عامل',
     'hero.machines': 'آلة',
     'hero.projects': 'مشروع',
@@ -32,7 +32,7 @@ const translations = {
     
     // About
     'about.title': 'لماذا VCE؟',
-    'about.paragraph1': 'فيفيان للإنشاءات والهندسة (VCE) هي شركة رائدة في مجال البناء والهندسة مقرها في مصراتة، ليبيا. منذ تأسيسنا في عام 2019، أسسنا أنفسنا كمزود رائد لخدمات البناء والهندس�� عالية الجودة في جميع أنحاء المنطقة.',
+    'about.paragraph1': 'شركة فيفيان للإنشاءات والاعمال الهندسية (VCE) هي شركة رائدة في مجال البناء والهندسة مقرها في مصراتة، ليبيا. منذ تأسيسنا في عام 2019، أسسنا أنفسنا كمزود رائد لخدمات البناء والهندس�� عالية الجودة في جميع أنحاء المنطقة.',
     'about.paragraph2': 'يجلب فريقنا من المحترفين ذوي الخبرة ثروة من المعرفة والخبرة لكل مشروع. نحن نفخر بالتزامنا بالتميز والابتكار وإرضاء العملاء. سواء كان الأمر يتعلق بتجديد صغير أو مشروع بناء واسع النطاق، نتعامل مع كل مهمة بنفس المستوى من التفاني والدقة.',
     'about.paragraph3': 'في VCE، نؤمن ببناء ليس فقط الهياكل، بل العلاقات أيضاً. يضمن نهجنا الذي يركز على العميل أننا نفهم ونلبي الاحتياجات الفريدة لكل مشروع، مما يحقق نتائج تتجاوز التوقعات.',
     'about.stats.title': 'نبذة عن VCE',
@@ -95,7 +95,7 @@ const translations = {
     'footer.city': 'مصراتة، ليبيا',
     'footer.phone': 'هاتف: 0912179069 / 0912229069',
     'footer.email': 'البريد الإلكتروني: Vivian.pe.co@gmail.com',
-    'footer.copyright': '© {year} VCE - فيفيان للإنشاءات والهندسة. جميع الحقوق محفوظة.',
+    'footer.copyright': '© {year} VCE - شركة فيفيان للإنشاءات والاعمال الهندسية. جميع الحقوق محفوظة.',
     
     // Language
     'language.switch': 'English',
@@ -110,7 +110,7 @@ const translations = {
     'nav.getQuote': 'Get a Quote',
     
     // Hero
-    'hero.title': 'Precision Engineering Since 2019',
+    'hero.title': 'Welcome to Vivian Construction & Engineering Survey Guide',
     'hero.workers': 'Workers',
     'hero.machines': 'Machines',
     'hero.projects': 'Projects',
@@ -122,7 +122,7 @@ const translations = {
     
     // About
     'about.title': 'Why VCE?',
-    'about.paragraph1': 'Vivian Construction & Engineering (VCE) is a leading construction and engineering company based in Misurata, Libya. Since our establishment in 2019, we have established ourselves as a premier provider of high-quality construction and engineering services throughout the region.',
+    'about.paragraph1': 'Vivian Construction & Engineering Services (VCE) is a leading construction and engineering company based in Misurata, Libya. Since our establishment in 2019, we have established ourselves as a premier provider of high-quality construction and engineering services throughout the region.',
     'about.paragraph2': 'Our team of experienced professionals brings a wealth of knowledge and expertise to every project. We pride ourselves on our commitment to excellence, innovation, and customer satisfaction. Whether it\'s a small renovation or a large-scale construction project, we approach each task with the same level of dedication and precision.',
     'about.paragraph3': 'At VCE, we believe in building not just structures, but relationships too. Our customer-focused approach ensures that we understand and meet the unique needs of each project, delivering results that exceed expectations.',
     'about.stats.title': 'About VCE',
@@ -185,7 +185,7 @@ const translations = {
     'footer.city': 'Misurata, Libya',
     'footer.phone': 'Phone: +218 0912179069 / +218 0912229069',
     'footer.email': 'Email: Vivian.pe.co@gmail.com',
-    'footer.copyright': '© {year} VCE - Vivian Construction & Engineering. All rights reserved.',
+    'footer.copyright': '© {year} VCE - Vivian Construction & Engineering Services. All rights reserved.',
     
     // Language
     'language.switch': 'العربية',

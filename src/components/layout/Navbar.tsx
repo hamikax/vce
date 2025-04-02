@@ -49,7 +49,7 @@ const Navbar = () => {
           <a href="#home" className="flex items-center">
             <h1 className="text-3xl font-bold text-vce-blue ml-2">VCE</h1>
             <span className="hidden md:block text-sm text-vce-black">
-              {language === 'ar' ? 'فيفيان للإنشاءات والهندسة' : 'Vivian Construction & Engineering'}
+              {language === 'ar' ? 'شركة فيفيان للإنشاءات والاعمال الهندسية' : 'Vivian Construction & Engineering Services'}
             </span>
           </a>
         </div>
