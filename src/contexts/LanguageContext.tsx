@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'ar' | 'en';
@@ -32,7 +31,7 @@ const translations = {
     
     // About
     'about.title': 'لماذا VCE؟',
-    'about.paragraph1': 'فيفيان للإنشاءات والهندسة (VCE) هي شركة رائدة في مجال البناء والهندسة مقرها في مصراتة، ليبيا. منذ تأسيسنا في عام 2019، أسسنا أنفسنا كمزود رائد لخدمات البناء والهندسة عالية الجودة في جميع أنحاء المنطقة.',
+    'about.paragraph1': 'فيفيان للإنشاءات والهندسة (VCE) هي شركة رائدة في مجال البناء والهندسة مقرها في مصراتة، ليبيا. منذ تأسيسنا في عام 2019، أسسنا أنفسنا كمزود رائد لخدمات البناء والهندس�� عالية الجودة في جميع أنحاء المنطقة.',
     'about.paragraph2': 'يجلب فريقنا من المحترفين ذوي الخبرة ثروة من المعرفة والخبرة لكل مشروع. نحن نفخر بالتزامنا بالتميز والابتكار وإرضاء العملاء. سواء كان الأمر يتعلق بتجديد صغير أو مشروع بناء واسع النطاق، نتعامل مع كل مهمة بنفس المستوى من التفاني والدقة.',
     'about.paragraph3': 'في VCE، نؤمن ببناء ليس فقط الهياكل، بل العلاقات أيضاً. يضمن نهجنا الذي يركز على العميل أننا نفهم ونلبي الاحتياجات الفريدة لكل مشروع، مما يحقق نتائج تتجاوز التوقعات.',
     'about.stats.title': 'نبذة عن VCE',
@@ -43,13 +42,11 @@ const translations = {
     
     // Services
     'services.title': 'خبرات VCE',
-    'services.construction': 'البناء',
-    'services.engineering': 'الهندسة',
-    'services.projectManagement': 'إدارة المشاريع',
+    'services.construction': 'بناء الطرق',
+    'services.engineering': 'المعدات والخبرة',
     'services.maintenance': 'الصيانة',
-    'services.construction.desc': 'من المباني السكنية إلى المجمعات التجارية، نتعامل مع مشاريع البناء بجميع أحجامها بدقة واهتمام.',
-    'services.engineering.desc': 'يصمم فريقنا من المهندسين الخبراء حلولًا مبتكرة وظيفية وجمالية في آن واحد.',
-    'services.projectManagement.desc': 'نشرف على المشاريع من التصور إلى الإكمال، مما يضمن بقاءها على الجدول الزمني وضمن الميزانية.',
+    'services.construction.desc': 'متخصصون في بناء وتطوير شبكات الطرق بأعلى مستويات الجودة والمتانة لضمان بنية تحتية مستدامة.',
+    'services.engineering.desc': 'نمتلك أحدث المعدات والآلات المتخصصة وفريقاً ذو خبرة واسعة في مجال هندسة الطرق ورصفها.',
     'services.maintenance.desc': 'نقدم خدمات صيانة مستمرة لضمان طول عمر المباني والهياكل وعملها.',
     'services.discussProject': 'ناقش مشروعك',
     
@@ -74,9 +71,8 @@ const translations = {
     'contact.phone': 'رقم الهاتف',
     'contact.subject': 'الموضوع *',
     'contact.chooseService': 'اختر خدمة',
-    'contact.construction': 'البناء',
-    'contact.engineering': 'الهندسة',
-    'contact.projectManagement': 'إدارة المشاريع',
+    'contact.construction': 'بناء الطرق',
+    'contact.engineering': 'المعدات والخبرة',
     'contact.maintenance': 'الصيانة',
     'contact.other': 'أخرى',
     'contact.message': 'رسالتك *',
@@ -94,8 +90,8 @@ const translations = {
     'footer.contact': 'اتصل بنا',
     'footer.address': '123 شارع الإنشاءات',
     'footer.city': 'مصراتة، ليبيا',
-    'footer.phone': 'هاتف: 5678 234 91 218+',
-    'footer.email': 'البريد الإلكتروني: info@vce-construction.com',
+    'footer.phone': 'هاتف: 0912179069 / 0912229069',
+    'footer.email': 'البريد الإلكتروني: Vivian.pe.co@gmail.com',
     'footer.copyright': '© {year} VCE - فيفيان للإنشاءات والهندسة. جميع الحقوق محفوظة.',
     
     // Language
@@ -134,13 +130,11 @@ const translations = {
     
     // Services
     'services.title': 'VCE Expertise',
-    'services.construction': 'Construction',
-    'services.engineering': 'Engineering',
-    'services.projectManagement': 'Project Management',
+    'services.construction': 'Road Building',
+    'services.engineering': 'Equipment & Expertise',
     'services.maintenance': 'Maintenance',
-    'services.construction.desc': 'From residential buildings to commercial complexes, we handle construction projects of all sizes with precision and care.',
-    'services.engineering.desc': 'Our team of expert engineers designs innovative solutions that are both functional and aesthetic.',
-    'services.projectManagement.desc': 'We oversee projects from conception to completion, ensuring they stay on schedule and within budget.',
+    'services.construction.desc': 'Specialized in building and developing road networks with the highest quality and durability standards to ensure sustainable infrastructure.',
+    'services.engineering.desc': 'We own state-of-the-art specialized equipment and machinery along with a highly experienced team in road engineering and paving.',
     'services.maintenance.desc': 'We provide ongoing maintenance services to ensure the longevity and functionality of buildings and structures.',
     'services.discussProject': 'Discuss Your Project',
     
@@ -165,9 +159,8 @@ const translations = {
     'contact.phone': 'Phone Number',
     'contact.subject': 'Subject *',
     'contact.chooseService': 'Choose a service',
-    'contact.construction': 'Construction',
-    'contact.engineering': 'Engineering',
-    'contact.projectManagement': 'Project Management',
+    'contact.construction': 'Road Building',
+    'contact.engineering': 'Equipment & Expertise',
     'contact.maintenance': 'Maintenance',
     'contact.other': 'Other',
     'contact.message': 'Your Message *',
@@ -185,8 +178,8 @@ const translations = {
     'footer.contact': 'Contact Us',
     'footer.address': '123 Construction Street',
     'footer.city': 'Misurata, Libya',
-    'footer.phone': 'Phone: +218 91 234 5678',
-    'footer.email': 'Email: info@vce-construction.com',
+    'footer.phone': 'Phone: +218 0912179069 / +218 0912229069',
+    'footer.email': 'Email: Vivian.pe.co@gmail.com',
     'footer.copyright': '© {year} VCE - Vivian Construction & Engineering. All rights reserved.',
     
     // Language

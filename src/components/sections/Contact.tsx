@@ -16,12 +16,12 @@ const Contact = () => {
     {
       icon: <Phone className="h-6 w-6" />,
       label: t('contact.phone.label'),
-      value: "+218 91 234 5678"
+      value: "+218 0912179069 / +218 0912229069"
     },
     {
       icon: <Mail className="h-6 w-6" />,
       label: t('contact.email.label'),
-      value: "info@vce-construction.com"
+      value: "Vivian.pe.co@gmail.com"
     }
   ];
 

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -9,9 +8,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const services = [
-    language === 'ar' ? "البناء" : "Construction",
-    language === 'ar' ? "الهندسة" : "Engineering",
-    language === 'ar' ? "إدارة المشاريع" : "Project Management",
+    language === 'ar' ? "بناء الطرق" : "Road Building",
+    language === 'ar' ? "المعدات والخبرة" : "Equipment & Expertise",
     language === 'ar' ? "الصيانة" : "Maintenance",
     language === 'ar' ? "الاستشارات" : "Consulting",
     language === 'ar' ? "التصميم" : "Design"
