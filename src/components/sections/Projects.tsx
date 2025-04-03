@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -210,17 +211,17 @@ const Projects = () => {
                 ) : project.id === 6 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
                     <img 
-                      src="/lovable-uploads/fe9d4a13-878b-4e19-baac-233cf804c1db.png"
+                      src="/lovable-uploads/4db305e7-643d-46d5-a8cf-c7869a60ef94.png"
                       alt="Special work in Al-Shawahdeh area" 
                       className="w-full h-auto rounded"
                     />
                     <img 
-                      src="/lovable-uploads/637ab766-0ca3-4839-a145-c7059bbf6666.png"
+                      src="/lovable-uploads/aad138d2-d444-4021-a89a-87463640c317.png"
                       alt="Special work in Al-Shawahdeh area" 
                       className="w-full h-auto rounded"
                     />
                     <img 
-                      src="/lovable-uploads/fe9d4a13-878b-4e19-baac-233cf804c1db.png"
+                      src="/lovable-uploads/a33e8390-8bc8-4293-acc2-a2bf5501e2f9.png"
                       alt="Special work in Al-Shawahdeh area"
                       className="w-full h-auto rounded md:col-span-2"
                     />
