@@ -15,7 +15,7 @@ const EquipmentServices = () => {
         <div className="flex flex-col md:flex-row items-center gap-8" dir={textDirection}>
           <div className="md:w-1/2">
             <img 
-              src="/lovable-uploads/21b15895-16bc-4bb7-a0c7-86b8ecf02f4c.png"
+              src="/lovable-uploads/908bbc3c-e5b0-4647-80ed-809b15c21a5b.png"
               alt="Heavy Equipment Services" 
               className="rounded-lg shadow-lg w-full h-auto"
             />

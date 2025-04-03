@@ -49,7 +49,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <a href="#home" className="flex flex-col items-center md:items-start">
             <img 
-              src="/lovable-uploads/21b15895-16bc-4bb7-a0c7-86b8ecf02f4c.png" 
+              src="/lovable-uploads/908bbc3c-e5b0-4647-80ed-809b15c21a5b.png" 
               alt="VCE Logo" 
               className="h-12 md:h-16 w-auto"
             />
