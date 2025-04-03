@@ -31,6 +31,7 @@ const Navbar = () => {
     { name: t('nav.home'), href: "#home" },
     { name: t('nav.about'), href: "#about" },
     { name: t('nav.services'), href: "#services" },
+    { name: t('nav.equipment'), href: "#equipment-services" },
     { name: t('nav.projects'), href: "#projects" },
     { name: t('nav.contact'), href: "#contact" },
   ];
@@ -40,15 +41,19 @@ const Navbar = () => {
   return (
     <nav 
       className={cn(
-        "fixed w-full py-4 z-50 transition-all duration-300",
+        "fixed w-full py-2 z-50 transition-all duration-300",
         isScrolled ? "bg-white shadow-lg" : "bg-transparent"
       )}
     >
       <div className="vce-container flex justify-between items-center">
         <div className="flex items-center">
           <a href="#home" className="flex flex-col items-center md:items-start">
-            <h1 className="text-3xl font-bold text-vce-blue">VCE</h1>
-            <span className="hidden md:block text-sm text-vce-black">
+            <img 
+              src="/lovable-uploads/21b15895-16bc-4bb7-a0c7-86b8ecf02f4c.png" 
+              alt="VCE Logo" 
+              className="h-12 md:h-16 w-auto"
+            />
+            <span className="hidden md:block text-sm text-vce-black mt-1">
               {language === 'ar' ? 'شركة فيفيان للإنشاءات والاعمال الهندسية' : 'Vivian Construction & Engineering Services'}
             </span>
           </a>
