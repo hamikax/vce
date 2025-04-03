@@ -74,6 +74,12 @@ const Projects = () => {
     setActiveProject(null);
   };
 
+  // Image error handler function
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = "/placeholder.svg";
+    e.currentTarget.classList.add("border", "border-gray-200");
+  };
+
   return (
     <section id="projects" className="vce-section bg-gray-50">
       <div className="vce-container">
@@ -86,9 +92,15 @@ const Projects = () => {
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
             >
               <div 
-                className="h-56 bg-cover bg-center" 
-                style={{ backgroundImage: `url(${project.image})` }}
-              ></div>
+                className="h-56 bg-cover bg-center relative"
+              >
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                  onError={handleImageError}
+                />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-vce-blue">{project.title}</h3>
                 <div className="flex justify-between mb-3">
@@ -124,16 +136,19 @@ const Projects = () => {
                       src="/lovable-uploads/764e4493-158f-464c-b2a7-0bb4c167c626.png"
                       alt="Road paving project" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/58819374-01be-4ebd-a520-5680cf78f10f.png"
                       alt="Road paving project" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/47f3dc8c-3817-48b0-80d1-10826321dcd6.png"
                       alt="Road paving project"
                       className="w-full h-auto rounded md:col-span-2"
+                      onError={handleImageError}
                     />
                   </div>
                 ) : project.id === 2 ? (
@@ -142,16 +157,19 @@ const Projects = () => {
                       src="/lovable-uploads/2d2f73f8-6966-4742-9824-8fe7857287de.png"
                       alt="Misurata Resort road paving" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/eeb56569-810c-4bc9-9069-c1c8f094329e.png"
                       alt="Misurata Resort road paving" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/bd310ad2-71e1-4ace-86e8-a2621b68a29e.png"
                       alt="Misurata Resort road paving"
                       className="w-full h-auto rounded md:col-span-2"
+                      onError={handleImageError}
                     />
                   </div>
                 ) : project.id === 3 ? (
@@ -160,16 +178,19 @@ const Projects = () => {
                       src="/lovable-uploads/e3c4f0f2-39e2-4c28-8d27-ce5ded87826a.png"
                       alt="Excavation and backfilling works" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/1e2862f3-0439-48ba-97c6-d87f36a6942d.png"
                       alt="Excavation and backfilling works" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/fd57dbaf-61e1-4423-b004-661fdfb41fda.png"
                       alt="Excavation and backfilling works"
                       className="w-full h-auto rounded md:col-span-2"
+                      onError={handleImageError}
                     />
                   </div>
                 ) : project.id === 4 ? (
@@ -178,16 +199,19 @@ const Projects = () => {
                       src="/lovable-uploads/41158a6b-decb-4bb0-be94-59ab27125f05.png"
                       alt="Road paving in Tmeina agricultural area" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/cc9f227b-5166-47ad-b98b-c92e9a722a34.png"
                       alt="Road paving in Tmeina agricultural area" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/a0545a7a-04c6-4ba2-9bcd-fe33fc0e8b97.png"
                       alt="Road paving in Tmeina agricultural area"
                       className="w-full h-auto rounded md:col-span-2"
+                      onError={handleImageError}
                     />
                   </div>
                 ) : project.id === 5 ? (
@@ -196,16 +220,19 @@ const Projects = () => {
                       src="/lovable-uploads/42dbda78-0b0b-42f6-97e2-791ac668ad22.png"
                       alt="M.C.O Layer Spraying Works" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/30eed758-6079-4c7b-a37e-3051a66eee3c.png"
                       alt="M.C.O Layer Spraying Works" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/8565d59c-768a-4dd7-b61d-266c66f6c3ed.png"
                       alt="M.C.O Layer Spraying Works"
                       className="w-full h-auto rounded md:col-span-2"
+                      onError={handleImageError}
                     />
                   </div>
                 ) : project.id === 6 ? (
@@ -214,23 +241,30 @@ const Projects = () => {
                       src="/lovable-uploads/4db305e7-643d-46d5-a8cf-c7869a60ef94.png"
                       alt="Special work in Al-Shawahdeh area" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/aad138d2-d444-4021-a89a-87463640c317.png"
                       alt="Special work in Al-Shawahdeh area" 
                       className="w-full h-auto rounded"
+                      onError={handleImageError}
                     />
                     <img 
                       src="/lovable-uploads/a33e8390-8bc8-4293-acc2-a2bf5501e2f9.png"
                       alt="Special work in Al-Shawahdeh area"
                       className="w-full h-auto rounded md:col-span-2"
+                      onError={handleImageError}
                     />
                   </div>
                 ) : (
-                  <div 
-                    className="h-64 bg-cover bg-center" 
-                    style={{ backgroundImage: `url(${project.image})` }}
-                  ></div>
+                  <div className="p-2">
+                    <img 
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-64 object-cover rounded"
+                      onError={handleImageError}
+                    />
+                  </div>
                 )}
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-4">

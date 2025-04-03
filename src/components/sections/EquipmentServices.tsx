@@ -17,7 +17,11 @@ const EquipmentServices = () => {
             <img 
               src="/lovable-uploads/908bbc3c-e5b0-4647-80ed-809b15c21a5b.png"
               alt="Heavy Equipment Services" 
-              className="rounded-lg shadow-lg w-full h-auto"
+              className="rounded-lg shadow-lg w-full h-auto object-cover"
+              onError={(e) => {
+                e.currentTarget.src = "/placeholder.svg";
+                e.currentTarget.classList.add("border", "border-gray-200");
+              }}
             />
           </div>
           
