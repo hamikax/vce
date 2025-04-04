@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'ar' | 'en';
@@ -26,7 +27,7 @@ const translations = {
     'hero.projects': 'مشروع',
     'hero.location': 'مصراتة،',
     'hero.country': 'ليبيا',
-    'hero.services': 'خبراتنا',
+    'hero.services': 'خدمات اخرى',
     'hero.viewProjects': 'عرض المشاريع',
     'hero.scrollDown': 'اسحب للأسفل',
     
@@ -122,7 +123,7 @@ const translations = {
     'hero.projects': 'Projects',
     'hero.location': 'Misurata,',
     'hero.country': 'Libya',
-    'hero.services': 'Our Expertise',
+    'hero.services': 'Other Services',
     'hero.viewProjects': 'View Projects',
     'hero.scrollDown': 'Scroll Down',
     
