@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/components/ui/use-toast';
+import { Button } from '@/components/ui/button';
 
 interface ContactInfo {
   id: string;
@@ -121,16 +122,22 @@ const Contact = () => {
             
             {/* Google Maps Link */}
             <div className="mt-8">
-              <a 
-                href={mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-full p-4 bg-vce-blue text-white rounded-lg hover:bg-vce-blue/90 transition-colors"
+              <Button 
+                variant="vce"
+                animation="bounce"
+                className="flex items-center justify-center w-full p-4 rounded-lg"
+                asChild
               >
-                <MapPin className="mr-2" />
-                {language === 'ar' ? 'عرض الموقع على الخريطة' : 'View Location on Map'}
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
+                <a 
+                  href={mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MapPin className="mr-2" />
+                  {language === 'ar' ? 'عرض الموقع على الخريطة' : 'View Location on Map'}
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>
