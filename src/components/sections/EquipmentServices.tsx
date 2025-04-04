@@ -13,11 +13,12 @@ const EquipmentServices = () => {
         <h2 className="vce-heading text-center">{language === 'ar' ? 'خدماتنا الإضافية' : 'Our Services'}</h2>
         
         <div className="flex flex-col md:flex-row items-center gap-8" dir={textDirection}>
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 flex flex-col items-center">
+            <h3 className="text-2xl font-bold mb-4 text-vce-blue">Vivian Exports Company</h3>
             <img 
-              src="/lovable-uploads/908bbc3c-e5b0-4647-80ed-809b15c21a5b.png"
-              alt="Heavy Equipment Services" 
-              className="rounded-lg shadow-lg w-full h-auto object-cover"
+              src="/lovable-uploads/ef14481f-0c89-41f6-a79f-c954677721aa.png"
+              alt="Vivian Exports Company" 
+              className="rounded-lg shadow-lg w-full h-auto object-contain"
               onError={(e) => {
                 e.currentTarget.src = "/placeholder.svg";
                 e.currentTarget.classList.add("border", "border-gray-200");
