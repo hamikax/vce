@@ -1,3 +1,4 @@
+
 import { createClient } from '@supabase/supabase-js';
 
 // Add a custom Database type export to be used throughout the app
@@ -74,8 +75,17 @@ export type Database = {
   };
 };
 
+// Safely get environment variables with fallbacks
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+
+// Add error handling to help debug when environment variables are missing
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error('Missing Supabase environment variables. Make sure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set.');
+}
+
 // Update the supabase client to use the Database type
 export const supabase = createClient<Database>(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
+  supabaseUrl,
+  supabaseAnonKey
 );

@@ -1,7 +1,12 @@
 
-import React from 'react';  // Add explicit React import
+import React from 'react';  // Ensure React is imported
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
-createRoot(document.getElementById("root")!).render(<App />);
+// Get the root element with proper type assertion
+const rootElement = document.getElementById("root");
+if (!rootElement) throw new Error("Root element not found");
+
+// Create root and render the app
+createRoot(rootElement).render(<App />);
