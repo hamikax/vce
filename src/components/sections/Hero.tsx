@@ -58,7 +58,7 @@ const Hero = () => {
             "flex flex-wrap gap-4 animate-fade-in",
             "opacity-0 [animation-delay:0.6s]"
           )}>
-            <a href="#services" className="vce-btn vce-btn-primary">
+            <a href="#equipment-services" className="vce-btn vce-btn-primary">
               {t('hero.services')}
             </a>
             <a href="#projects" className="vce-btn bg-transparent border-2 border-white hover:bg-white hover:text-vce-blue transition-all duration-300">
