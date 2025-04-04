@@ -86,7 +86,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/9e898001-d747-4518-9ab7-ad4ed3b8d03c.png" 
                 alt="SKY LO" 
-                className="h-6 ml-1" 
+                className="h-10 ml-1 brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" 
               />
             </span>
           </p>
