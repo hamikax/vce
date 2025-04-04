@@ -1,10 +1,17 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { 
+  Accordion, 
+  AccordionContent, 
+  AccordionItem, 
+  AccordionTrigger 
+} from '@/components/ui/accordion';
 
 const Services = () => {
   const { language, t } = useLanguage();
   const textDirection = language === 'ar' ? 'rtl' : 'ltr';
+  const [hoveredService, setHoveredService] = useState<string | null>(null);
   
   const services = [
     {
@@ -15,6 +22,8 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
         </svg>
       ),
+      key: 'construction',
+      useAccordion: false,
     },
     {
       title: t('services.engineering'),
@@ -24,6 +33,8 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
         </svg>
       ),
+      key: 'engineering',
+      useAccordion: true, // This one uses accordion/hover behavior
     },
     {
       title: t('services.projectManagement'),
@@ -33,6 +44,8 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
         </svg>
       ),
+      key: 'projectManagement',
+      useAccordion: false,
     },
     {
       title: t('services.maintenance'),
@@ -43,8 +56,18 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       ),
+      key: 'maintenance',
+      useAccordion: false,
     },
   ];
+
+  const handleMouseEnter = (key: string) => {
+    setHoveredService(key);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredService(null);
+  };
 
   return (
     <section id="services" className="vce-section">
@@ -52,16 +75,32 @@ const Services = () => {
         <h2 className="vce-heading text-center">{t('services.title')}</h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" dir={textDirection}>
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div 
               key={service.title}
-              className="bg-white p-6 rounded-lg border-2 border-gray-200 hover:border-vce-blue transition-all duration-300 shadow-sm hover:shadow-md"
+              className={`bg-white p-6 rounded-lg border-2 border-gray-200 hover:border-vce-blue transition-all duration-300 shadow-sm hover:shadow-md h-full flex flex-col ${service.useAccordion ? 'cursor-pointer' : ''}`}
+              onMouseEnter={service.useAccordion ? () => handleMouseEnter(service.key) : undefined}
+              onMouseLeave={service.useAccordion ? handleMouseLeave : undefined}
             >
               <div className="flex justify-center mb-4 text-vce-blue">
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold mb-3 text-center text-vce-blue">{service.title}</h3>
-              <p className="text-gray-600 text-center">{service.description}</p>
+              
+              {service.useAccordion ? (
+                <Accordion type="single" collapsible className="w-full mt-auto">
+                  <AccordionItem value="description" className="border-none">
+                    <AccordionTrigger className={`px-0 justify-center ${hoveredService === service.key ? 'hover:no-underline py-0' : 'h-0 invisible'}`}>
+                      {hoveredService === service.key ? (language === 'ar' ? 'عرض التفاصيل' : 'View Details') : ''}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-600 text-center">
+                      {service.description}
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              ) : (
+                <p className="text-gray-600 text-center">{service.description}</p>
+              )}
             </div>
           ))}
         </div>
