@@ -133,7 +133,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="bg-white rounded-lg p-8 shadow-md" dir={textDirection}>
             <h3 className="text-2xl font-bold mb-6 text-vce-blue">
-              {language === 'ar' ? 'أرسل لنا رسالة' : 'Send us a message'}
+              {language === 'ar' ? 'Send us a message' : 'Send us a message'}
             </h3>
             
             <Form {...form}>
@@ -143,9 +143,9 @@ const Contact = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{language === 'ar' ? 'الاسم' : 'Name'}</FormLabel>
+                      <FormLabel>{'Name'}</FormLabel>
                       <FormControl>
-                        <Input placeholder={language === 'ar' ? 'أدخل اسمك' : 'Enter your name'} {...field} />
+                        <Input placeholder={'Enter your name'} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -157,9 +157,9 @@ const Contact = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{language === 'ar' ? 'البريد الإلكتروني' : 'Email'}</FormLabel>
+                      <FormLabel>{'Email'}</FormLabel>
                       <FormControl>
-                        <Input placeholder={language === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email'} {...field} />
+                        <Input placeholder={'Enter your email'} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -171,9 +171,9 @@ const Contact = () => {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{language === 'ar' ? 'رقم الهاتف (اختياري)' : 'Phone (optional)'}</FormLabel>
+                      <FormLabel>{'Phone (optional)'}</FormLabel>
                       <FormControl>
-                        <Input placeholder={language === 'ar' ? 'أدخل رقم هاتفك' : 'Enter your phone number'} {...field} />
+                        <Input placeholder={'Enter your phone number'} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -185,10 +185,10 @@ const Contact = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{language === 'ar' ? 'الرسالة' : 'Message'}</FormLabel>
+                      <FormLabel>{'Message'}</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder={language === 'ar' ? 'اكتب رسالتك هنا...' : 'Type your message here...'} 
+                          placeholder={'Type your message here...'} 
                           className="min-h-[120px]" 
                           {...field} 
                         />
@@ -204,8 +204,8 @@ const Contact = () => {
                   disabled={isSubmitting}
                 >
                   {isSubmitting
-                    ? (language === 'ar' ? 'جاري الإرسال...' : 'Sending...')
-                    : (language === 'ar' ? 'إرسال الرسالة' : 'Send Message')}
+                    ? (language === 'ar' ? 'Sending...' : 'Sending...')
+                    : (language === 'ar' ? 'Send Message' : 'Send Message')}
                 </Button>
               </form>
             </Form>
