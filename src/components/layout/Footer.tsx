@@ -80,7 +80,16 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="pt-6 border-t border-white/20 text-center text-gray-400 text-sm">
-          <p>{t('footer.copyright').replace('{year}', currentYear.toString())} | <span className="text-gray-300 font-medium">provided by TECH CLOUD</span></p>
+          <p>
+            {t('footer.copyright').replace('{year}', currentYear.toString())} | 
+            <span className="inline-flex items-center ml-1">
+              <img 
+                src="/lovable-uploads/9e898001-d747-4518-9ab7-ad4ed3b8d03c.png" 
+                alt="SKY LO" 
+                className="h-6 ml-1" 
+              />
+            </span>
+          </p>
         </div>
       </div>
     </footer>
