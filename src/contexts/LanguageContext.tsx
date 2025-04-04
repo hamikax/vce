@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'ar' | 'en';
@@ -100,6 +99,11 @@ const translations = {
     
     // Language
     'language.switch': 'English',
+    
+    // Additional Services
+    'equipment.petroleum.title': 'شركة فيفيان للخدمات النفطية',
+    'equipment.petroleum.description': 'شركة فيفيان للخدمات النفطية المتخصصة في جميع الأعمال النفطية المتنوعة من صيانة وتطوير و إنشاء و تشغيل',
+    'equipment.facebook': 'زيارة صفحة الفيسبوك',
   },
   en: {
     // Navigation
@@ -191,6 +195,11 @@ const translations = {
     
     // Language
     'language.switch': 'العربية',
+    
+    // Additional Services
+    'equipment.petroleum.title': 'Vivian Petroleum Company',
+    'equipment.petroleum.description': 'Vivian Petroleum Company specializes in various petroleum services including maintenance, development, construction, and operations.',
+    'equipment.facebook': 'Visit Facebook Page',
   }
 };
 
