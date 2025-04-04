@@ -1,3 +1,5 @@
+
+import React from 'react'; // Add explicit React import
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
