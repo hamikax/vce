@@ -80,7 +80,7 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="pt-6 border-t border-white/20 text-center text-gray-400 text-sm">
-          <p>{t('footer.copyright').replace('{year}', currentYear.toString())}</p>
+          <p>{t('footer.copyright').replace('{year}', currentYear.toString())} | <span className="text-gray-300 font-medium">provided by TECH CLOUD</span></p>
         </div>
       </div>
     </footer>
