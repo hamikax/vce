@@ -9,7 +9,105 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          id: string
+          image_urls: string[]
+          language: string
+          location: string
+          main_image: string
+          title: string
+          year: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description: string
+          id?: string
+          image_urls: string[]
+          language?: string
+          location: string
+          main_image: string
+          title: string
+          year: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          image_urls?: string[]
+          language?: string
+          location?: string
+          main_image?: string
+          title?: string
+          year?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          author: string
+          company: string | null
+          content: string
+          created_at: string
+          id: string
+          language: string
+          role: string | null
+        }
+        Insert: {
+          author: string
+          company?: string | null
+          content: string
+          created_at?: string
+          id?: string
+          language?: string
+          role?: string | null
+        }
+        Update: {
+          author?: string
+          company?: string | null
+          content?: string
+          created_at?: string
+          id?: string
+          language?: string
+          role?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

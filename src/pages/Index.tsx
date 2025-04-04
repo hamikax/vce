@@ -9,6 +9,7 @@ import Contact from '@/components/sections/Contact';
 import Footer from '@/components/layout/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
 import EquipmentServices from '@/components/sections/EquipmentServices';
+import Testimonials from '@/components/sections/Testimonials';
 
 const Index = () => {
   const { language } = useLanguage();
@@ -40,6 +41,7 @@ const Index = () => {
         <Services />
         <EquipmentServices />
         <Projects />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />
