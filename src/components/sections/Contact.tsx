@@ -1,34 +1,11 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { supabase } from '@/integrations/supabase/client';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: 'Name must be at least 2 characters.',
-  }),
-  email: z.string().email({
-    message: 'Please enter a valid email address.',
-  }),
-  phone: z.string().optional(),
-  message: z.string().min(10, {
-    message: 'Message must be at least 10 characters.',
-  }),
-});
 
 const Contact = () => {
   const { language, t } = useLanguage();
   const textDirection = language === 'ar' ? 'rtl' : 'ltr';
-  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const contactInfo = [
     {
@@ -50,53 +27,12 @@ const Contact = () => {
 
   const mapUrl = "https://maps.app.goo.gl/UJrbitZog7ogtP688?g_st=com.google.maps.preview.copy";
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-    },
-  });
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    setIsSubmitting(true);
-    try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([
-          {
-            name: values.name,
-            email: values.email,
-            phone: values.phone || null,
-            message: values.message,
-          },
-        ]);
-      
-      if (error) throw error;
-      
-      toast.success(language === 'ar' 
-        ? 'تم إرسال الرسالة بنجاح! سنتواصل معك قريباً.' 
-        : 'Message sent successfully! We will get back to you soon.');
-      
-      form.reset();
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error(language === 'ar'
-        ? 'حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.'
-        : 'There was an error submitting your message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="contact" className="vce-section">
       <div className="vce-container">
         <h2 className="vce-heading text-center">{t('contact.title')}</h2>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="max-w-lg mx-auto">
           {/* Contact Information */}
           <div className="bg-white rounded-lg p-8 shadow-md" dir={textDirection}>
             <h3 className="text-2xl font-bold mb-6 text-vce-blue">{t('contact.info')}</h3>
@@ -128,87 +64,6 @@ const Contact = () => {
                 <ExternalLink className="ml-2 h-4 w-4" />
               </a>
             </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-white rounded-lg p-8 shadow-md" dir={textDirection}>
-            <h3 className="text-2xl font-bold mb-6 text-vce-blue">
-              {language === 'ar' ? 'Send us a message' : 'Send us a message'}
-            </h3>
-            
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{'Name'}</FormLabel>
-                      <FormControl>
-                        <Input placeholder={'Enter your name'} {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{'Email'}</FormLabel>
-                      <FormControl>
-                        <Input placeholder={'Enter your email'} {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{'Phone (optional)'}</FormLabel>
-                      <FormControl>
-                        <Input placeholder={'Enter your phone number'} {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{'Message'}</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder={'Type your message here...'} 
-                          className="min-h-[120px]" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <Button 
-                  type="submit" 
-                  className="w-full bg-vce-blue hover:bg-vce-blue/90"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting
-                    ? (language === 'ar' ? 'Sending...' : 'Sending...')
-                    : (language === 'ar' ? 'Send Message' : 'Send Message')}
-                </Button>
-              </form>
-            </Form>
           </div>
         </div>
       </div>
