@@ -75,14 +75,9 @@ export type Database = {
   };
 };
 
-// Safely get environment variables with fallbacks
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
-
-// Add error handling to help debug when environment variables are missing
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Missing Supabase environment variables. Make sure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set.');
-}
+// Hardcoded Supabase URL and anon key to ensure the app works without environment variables
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://vqgqcmfaqlfomlnmvrnd.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxZ3FjbWZhcWxmb21sbm12cm5kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM2NTI5ODQsImV4cCI6MjA1OTIyODk4NH0.AZHIC1OSw1TpFhHojqyEZJaU-j2qhYoVzku8Gh7FVR8';
 
 // Update the supabase client to use the Database type
 export const supabase = createClient<Database>(
