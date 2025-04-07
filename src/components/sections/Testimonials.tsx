@@ -17,6 +17,7 @@ interface Testimonial {
   images?: string[];
   isGovernment?: boolean;
   socialLink?: string;
+  location?: string;
 }
 
 const Testimonials = () => {
@@ -43,37 +44,28 @@ const Testimonials = () => {
     staleTime: 60 * 1000, // 1 minute
   });
 
-  const fallbackTestimonials = [
-    {
-      id: '1',
-      content: language === 'ar' 
-        ? "قامت VCE بتنفيذ مشروعنا في الوقت المحدد وضمن الميزانية. لقد تجاوز اهتمامهم بالتفاصيل وجودة العمل توقعاتنا. نتطلع إلى العمل معهم مرة أخرى في المستقبل."
-        : "VCE completed our project on time and within budget. Their attention to detail and quality of work exceeded our expectations. We look forward to working with them again in the future.",
-      author: language === 'ar' ? "أحمد محمود" : "Ahmed Mahmoud",
-      role: language === 'ar' ? "مدير المشروع" : "Project Manager",
-      company: language === 'ar' ? "شركة مصراتة للتطوير" : "Misurata Development Company",
-      language: language
-    },
-    {
-      id: '2',
-      content: language === 'ar'
-        ? "العمل مع VCE كان متعة من البداية إلى النهاية. كان فريقهم محترفًا ومتجاوبًا وملتزمًا حقًا بنجاح مشروعنا. والنتيجة تتحدث عن نفسها."
-        : "Working with VCE was a pleasure from start to finish. Their team was professional, responsive, and truly committed to the success of our project. The result speaks for itself.",
-      author: language === 'ar' ? "صوفيا خليل" : "Sofia Khalil",
-      role: language === 'ar' ? "الرئيس التنفيذي" : "CEO",
-      company: language === 'ar' ? "مجموعة البحر المتوسط القابضة" : "Mediterranean Holding Group",
-      language: language
-    },
-    {
-      id: '3',
-      content: language === 'ar'
-        ? "الخبرة الهندسية لشركة VCE لا مثيل لها. لقد قدموا حلولًا مبتكرة للمشاكل المعقدة، مما أدى إلى مشروع لا يلبي متطلباتنا فحسب، بل يتجاوزها."
-        : "The engineering expertise of VCE is unmatched. They provided innovative solutions to complex problems, resulting in a project that not only meets our requirements but exceeds them.",
-      author: language === 'ar' ? "عمر فتحي" : "Omar Fathi",
-      role: language === 'ar' ? "مدير العمليات" : "Operations Director",
-      company: language === 'ar' ? "المجموعة الصناعية الليبية" : "Libyan Industrial Group",
-      language: language
-    },
+  // Government testimonial with road construction in Al-Shawahda area
+  const shawahidaTestimonial = {
+    id: 'shawahida',
+    content: language === 'ar'
+      ? "أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الرويسـات\n🗓️ الأحد 11 فبراير 2024م"
+      : "Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Ruwaisat\n🗓️ Sunday, February 11, 2024",
+    author: language === 'ar' ? "جهاز تنفيذ مشروعات المواصلات مصراتة" : "Misurata Transportation Projects Implementation Agency",
+    role: language === 'ar' ? "إدارة المشاريع" : "Project Management",
+    company: language === 'ar' ? "القطاع الحكومي" : "Government Sector",
+    language: language,
+    isGovernment: true,
+    socialLink: "https://www.facebook.com/share/1Yy6AMLosf/?mibextid=wwXIfr",
+    location: language === 'ar' ? "منطقة الشواهده" : "Al-Shawahda Area",
+    images: [
+      "/lovable-uploads/47ba2542-ff4e-409b-aa2f-8e0c3e0414c8.png",
+      "/lovable-uploads/597ba30c-3457-424b-bc06-cb63d3405443.png",
+      "/lovable-uploads/c0c12c3e-7832-489f-9bea-37d3e38cbdf5.png"
+    ]
+  };
+
+  // The only remaining testimonial for non-government
+  const remainingTestimonials = [
     {
       id: '4',
       content: language === 'ar'
@@ -94,7 +86,9 @@ const Testimonials = () => {
     }
   ];
 
-  const displayTestimonials = (!testimonials || testimonials.length === 0 || error) ? fallbackTestimonials : testimonials;
+  const displayTestimonials = (!testimonials || testimonials.length === 0 || error) ? 
+    [shawahidaTestimonial, ...remainingTestimonials] : 
+    testimonials;
 
   useEffect(() => {
     const addFallbackTestimonials = async () => {
@@ -106,7 +100,9 @@ const Testimonials = () => {
             .single();
           
           if (!data || data.count === 0) {
-            await supabase.from('testimonials').insert(fallbackTestimonials);
+            await supabase
+              .from('testimonials')
+              .insert([shawahidaTestimonial, ...remainingTestimonials]);
           }
         } catch (error) {
           console.error('Error adding fallback testimonials:', error);
@@ -119,8 +115,9 @@ const Testimonials = () => {
     }
   }, [isLoading, testimonials, error]);
 
+  // Filter testimonials by type
   const governmentTestimonials = displayTestimonials.filter(t => t.isGovernment);
-  const regularTestimonials = displayTestimonials.filter(t => !t.isGovernment);
+  const regularTestimonials = []; // No regular testimonials as requested
 
   return (
     <section className="bg-vce-blue py-16 sm:py-24">
@@ -140,6 +137,12 @@ const Testimonials = () => {
                 key={testimonial.id}
                 className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 mb-10"
               >
+                {testimonial.location && (
+                  <h4 className="text-xl font-semibold mb-4 text-vce-red">
+                    {testimonial.location}
+                  </h4>
+                )}
+                
                 <div className="mb-6">
                   <p className="text-white mb-6 text-lg whitespace-pre-line">
                     "{testimonial.content}"
@@ -212,32 +215,34 @@ const Testimonials = () => {
           </div>
         )}
         
-        <div className={`grid md:grid-cols-3 gap-8`} dir={textDirection}>
-          {regularTestimonials.map((testimonial) => (
-            <div 
-              key={testimonial.id}
-              className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20"
-            >
-              <div className="mb-6">
-                <svg className="h-8 w-8 text-vce-red" fill="currentColor" viewBox="0 0 32 32">
-                  <path d="M10 8v12h12v-12h-12zM8 6h16v16h-16v-16z"></path>
-                  <path d="M16 0v2h-16v16h2v-14h14v-4z"></path>
-                </svg>
-              </div>
-              
-              <p className="text-white mb-6 italic">
-                "{testimonial.content}"
-              </p>
-              
-              <div>
-                <p className="font-bold text-white">{testimonial.author}</p>
-                <p className="text-vce-red">
-                  {testimonial.role}, {testimonial.company}
+        {regularTestimonials.length > 0 && (
+          <div className={`grid md:grid-cols-3 gap-8`} dir={textDirection}>
+            {regularTestimonials.map((testimonial) => (
+              <div 
+                key={testimonial.id}
+                className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20"
+              >
+                <div className="mb-6">
+                  <svg className="h-8 w-8 text-vce-red" fill="currentColor" viewBox="0 0 32 32">
+                    <path d="M10 8v12h12v-12h-12zM8 6h16v16h-16v-16z"></path>
+                    <path d="M16 0v2h-16v16h2v-14h14v-4z"></path>
+                  </svg>
+                </div>
+                
+                <p className="text-white mb-6 italic">
+                  "{testimonial.content}"
                 </p>
+                
+                <div>
+                  <p className="font-bold text-white">{testimonial.author}</p>
+                  <p className="text-vce-red">
+                    {testimonial.role}, {testimonial.company}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
