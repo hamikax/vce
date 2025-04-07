@@ -60,6 +60,10 @@ export type Database = {
           content: string;
           created_at: string;
           language: string;
+          isGovernment?: boolean;
+          socialLink?: string;
+          location?: string;
+          images?: string[];
         };
         Insert: {
           id?: string;
@@ -69,6 +73,10 @@ export type Database = {
           content: string;
           created_at?: string;
           language: string;
+          isGovernment?: boolean;
+          socialLink?: string;
+          location?: string;
+          images?: string[];
         };
       };
     };

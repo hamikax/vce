@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -77,6 +76,7 @@ const Testimonials = () => {
       language: language,
       isGovernment: true,
       socialLink: "https://www.facebook.com/share/1Yy6AMLosf/?mibextid=wwXIfr",
+      location: language === 'ar' ? "الرويسـات" : "Al-Ruwaisat",
       images: [
         "/lovable-uploads/c03d5593-2b85-4801-ac5a-d22613760c28.png",
         "/lovable-uploads/a4c1c124-d7a0-442f-8028-b0811aca0ffc.png",
