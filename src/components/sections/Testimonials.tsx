@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -43,12 +44,12 @@ const Testimonials = () => {
     staleTime: 60 * 1000, // 1 minute
   });
 
-  // Government testimonial with road construction in Al-Shawahda area
+  // Shawahda area project testimonial
   const shawahidaTestimonial = {
     id: 'shawahida',
     content: language === 'ar'
-      ? "أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الرويسـات\n🗓️ الأحد 11 فبراير 2024م"
-      : "Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Ruwaisat\n🗓️ Sunday, February 11, 2024",
+      ? "أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الشواهده\n🗓️ الأحد 11 فبراير 2024م"
+      : "Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Shawahda\n🗓️ Sunday, February 11, 2024",
     author: language === 'ar' ? "جهاز تنفيذ مشروعات المواصلات مصراتة" : "Misurata Transportation Projects Implementation Agency",
     role: language === 'ar' ? "إدارة المشاريع" : "Project Management",
     company: language === 'ar' ? "القطاع الحكومي" : "Government Sector",
@@ -63,31 +64,29 @@ const Testimonials = () => {
     ]
   };
 
-  // The only remaining testimonial for non-government
-  const remainingTestimonials = [
-    {
-      id: '4',
-      content: language === 'ar'
-        ? "أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الرويسـات\n🗓️ الأحد 11 فبراير 2024م"
-        : "Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Ruwaisat\n🗓️ Sunday, February 11, 2024",
-      author: language === 'ar' ? "جهاز تنفيذ مشروعات المواصلات مصراتة" : "Misurata Transportation Projects Implementation Agency",
-      role: language === 'ar' ? "إدارة المشاريع" : "Project Management",
-      company: language === 'ar' ? "القطاع الحكومي" : "Government Sector",
-      language: language,
-      isGovernment: true,
-      socialLink: "https://www.facebook.com/share/1Yy6AMLosf/?mibextid=wwXIfr",
-      location: language === 'ar' ? "الرويسـات" : "Al-Ruwaisat",
-      images: [
-        "/lovable-uploads/c03d5593-2b85-4801-ac5a-d22613760c28.png",
-        "/lovable-uploads/a4c1c124-d7a0-442f-8028-b0811aca0ffc.png",
-        "/lovable-uploads/ad00dbf7-c08f-49b7-a6da-5c5f0c78813a.png",
-        "/lovable-uploads/fdedcfa9-e3f5-485f-ba4e-bf56e6a4ca29.png"
-      ]
-    }
-  ];
+  // Ruwisat project
+  const ruwisatTestimonial = {
+    id: '4',
+    content: language === 'ar'
+      ? "أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الرويسـات\n🗓️ الأحد 11 فبراير 2024م"
+      : "Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Ruwaisat\n🗓️ Sunday, February 11, 2024",
+    author: language === 'ar' ? "جهاز تنفيذ مشروعات المواصلات مصراتة" : "Misurata Transportation Projects Implementation Agency",
+    role: language === 'ar' ? "إدارة المشاريع" : "Project Management",
+    company: language === 'ar' ? "القطاع الحكومي" : "Government Sector",
+    language: language,
+    isGovernment: true,
+    socialLink: "https://www.facebook.com/share/1Yy6AMLosf/?mibextid=wwXIfr",
+    location: language === 'ar' ? "الرويسـات" : "Al-Ruwaisat",
+    images: [
+      "/lovable-uploads/c03d5593-2b85-4801-ac5a-d22613760c28.png",
+      "/lovable-uploads/a4c1c124-d7a0-442f-8028-b0811aca0ffc.png",
+      "/lovable-uploads/ad00dbf7-c08f-49b7-a6da-5c5f0c78813a.png",
+      "/lovable-uploads/fdedcfa9-e3f5-485f-ba4e-bf56e6a4ca29.png"
+    ]
+  };
 
   const displayTestimonials = (!testimonials || testimonials.length === 0 || error) ? 
-    [shawahidaTestimonial, ...remainingTestimonials] : 
+    [shawahidaTestimonial, ruwisatTestimonial] : 
     testimonials;
 
   useEffect(() => {
@@ -102,7 +101,7 @@ const Testimonials = () => {
           if (!data || data.count === 0) {
             await supabase
               .from('testimonials')
-              .insert([shawahidaTestimonial, ...remainingTestimonials]);
+              .insert([shawahidaTestimonial, ruwisatTestimonial]);
           }
         } catch (error) {
           console.error('Error adding fallback testimonials:', error);
