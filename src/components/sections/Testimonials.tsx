@@ -77,25 +77,19 @@ const Testimonials = () => {
     {
       id: '4',
       content: language === 'ar'
-        ? "مشروع انشاء مظلات وتصريف مياه الأمطار بمحطات الوقود ومحطة القاعدة والفرع ومحطة ايشفاشا ومحطة المرقب ومحطة الشموخ بشركة البريقة لتسويق النفط. تم انجاز المشروع بنجاح والشكر موصول لفريق شركتكم المثالي."
-        : "Project to construct shelters and rainwater drainage at fuel stations including Base Station, Branch Station, Ishfasha Station, Murqub Station, and Al-Shumukh Station at Brega Oil Marketing Company. The project was successfully completed, and thanks to your company's exemplary team.",
-      author: language === 'ar' ? "شركة البريقة لتسويق النفط" : "Brega Oil Marketing Company",
+        ? "أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الرويسـات\n🗓️ الأحد 11 فبراير 2024م"
+        : "Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Ruwaisat\n🗓️ Sunday, February 11, 2024",
+      author: language === 'ar' ? "جهاز تنفيذ مشروعات المواصلات مصراتة" : "Misurata Transportation Projects Implementation Agency",
       role: language === 'ar' ? "إدارة المشاريع" : "Project Management",
       company: language === 'ar' ? "القطاع الحكومي" : "Government Sector",
       language: language,
       isGovernment: true,
       socialLink: "https://www.facebook.com/share/1Yy6AMLosf/?mibextid=wwXIfr",
       images: [
-        "/lovable-uploads/21b15895-16bc-4bb7-a0c7-86b8ecf02f4c.png",
-        "/lovable-uploads/908bbc3c-e5b0-4647-80ed-809b15c21a5b.png",
-        "/lovable-uploads/4db305e7-643d-46d5-a8cf-c7869a60ef94.png",
-        "/lovable-uploads/637ab766-0ca3-4839-a145-c7059bbf6666.png",
-        "/lovable-uploads/30eed758-6079-4c7b-a37e-3051a66eee3c.png",
-        "/lovable-uploads/e3c4f0f2-39e2-4c28-8d27-ce5ded87826a.png",
-        "/lovable-uploads/0f038d55-e2ba-4179-ad1d-4d3d26c25c45.png",
-        "/lovable-uploads/2a59cad9-10ce-4315-abdf-dac4dd7ea164.png",
-        "/lovable-uploads/732bc960-649d-4596-8e74-b2e8f9363c7d.png",
-        "/lovable-uploads/017686ec-46f3-4c7b-90c3-24855d28e2d8.png"
+        "/lovable-uploads/c03d5593-2b85-4801-ac5a-d22613760c28.png",
+        "/lovable-uploads/a4c1c124-d7a0-442f-8028-b0811aca0ffc.png",
+        "/lovable-uploads/ad00dbf7-c08f-49b7-a6da-5c5f0c78813a.png",
+        "/lovable-uploads/fdedcfa9-e3f5-485f-ba4e-bf56e6a4ca29.png"
       ]
     }
   ];
@@ -147,7 +141,7 @@ const Testimonials = () => {
                 className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 mb-10"
               >
                 <div className="mb-6">
-                  <p className="text-white mb-6 text-lg">
+                  <p className="text-white mb-6 text-lg whitespace-pre-line">
                     "{testimonial.content}"
                   </p>
                   
@@ -181,6 +175,7 @@ const Testimonials = () => {
                         opts={{
                           align: "start",
                           loop: true,
+                          containScroll: "trimSnaps"
                         }}
                       >
                         <CarouselContent>
@@ -195,6 +190,7 @@ const Testimonials = () => {
                                       className="w-full h-full object-cover"
                                       loading="lazy"
                                       onError={(e) => {
+                                        console.log(`Error loading image: ${image}`);
                                         e.currentTarget.src = "/placeholder.svg";
                                         e.currentTarget.classList.add("border", "border-gray-200");
                                       }}
