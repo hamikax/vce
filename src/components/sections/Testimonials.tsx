@@ -5,7 +5,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Facebook } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface Testimonial {
   id: string;
@@ -60,17 +61,19 @@ const Testimonials = () => {
     author: 'جهاز تنفيذ مشروعات المواصلات مصراتة',
     company: 'حكومة الوحدة الوطنية الليبية',
     content: language === 'ar' 
-      ? 'أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.' 
-      : 'Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.',
+      ? 'أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الرويسـات\n🗓️ الأحد 11 فبراير 2024م' 
+      : 'Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Ruwisat\n🗓️ Sunday, February 11, 2024',
     role: null,
     language: language,
     isGovernment: true,
-    location: language === 'ar' ? 'الشواهده، مصراتة' : 'Al-Shawahdeh, Misurata',
+    location: language === 'ar' ? 'الرويسـات، مصراتة' : 'Al-Ruwisat, Misurata',
     images: [
-      "/lovable-uploads/47ba2542-ff4e-409b-aa2f-8e0c3e0414c8.png",
-      "/lovable-uploads/597ba30c-3457-424b-bc06-cb63d3405443.png",
-      "/lovable-uploads/c0c12c3e-7832-489f-9bea-37d3e38cbdf5.png"
-    ]
+      "/lovable-uploads/e1d923a0-2e74-4a50-8fd4-72848946d1ba.png",
+      "/lovable-uploads/318cdbb4-7767-4d90-a851-0699250cefd0.png",
+      "/lovable-uploads/0f2be7a5-d88e-4b0b-93ba-79b0ca9127b5.png",
+      "/lovable-uploads/16a007e5-6451-4392-967e-eeb396e40f48.png"
+    ],
+    socialLink: "https://www.facebook.com/share/p/16UjuPuATY/"
   };
 
   // Use fallback if no government testimonials exist
@@ -114,7 +117,7 @@ const Testimonials = () => {
                             </div>
                           )}
                           
-                          <p className="text-white mb-4 italic">
+                          <p className="text-white mb-4 italic whitespace-pre-line">
                             "{testimonial.content}"
                           </p>
                           
@@ -127,15 +130,14 @@ const Testimonials = () => {
                               <p className="text-white/80 text-sm mt-1">{testimonial.location}</p>
                             )}
                             {testimonial.socialLink && (
-                              <a 
-                                href={testimonial.socialLink} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="text-white/70 hover:text-white flex items-center mt-2 text-sm"
+                              <Button 
+                                variant="ghost" 
+                                className="mt-4 bg-white/20 hover:bg-white/30 text-white"
+                                onClick={() => window.open(testimonial.socialLink, '_blank')}
                               >
-                                <ExternalLink className="w-4 h-4 mr-1" />
-                                {language === 'ar' ? 'عرض المشروع' : 'View Project'}
-                              </a>
+                                <Facebook className="w-4 h-4 mr-2" />
+                                {language === 'ar' ? 'عرض على فيسبوك' : 'View on Facebook'}
+                              </Button>
                             )}
                           </div>
                         </CardContent>
