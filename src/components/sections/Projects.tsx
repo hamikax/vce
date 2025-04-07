@@ -41,7 +41,6 @@ const Projects = () => {
     staleTime: 60 * 1000, // 1 minute
   });
 
-  // Fallback projects to use when there's no data from Supabase
   const fallbackProjects = [
     {
       id: '1',
@@ -117,24 +116,37 @@ const Projects = () => {
       ],
       description: language === 'ar' ? "تنفيذ أعمال رش طبقة M.C.O للطرق لتحسين جودتها ومتانتها وتعزيز البنية التحتية للطرق." : "Implementation of M.C.O layer spraying works for roads to improve quality, durability and enhance road infrastructure.",
       language: language
+    },
+    {
+      id: '6',
+      title: language === 'ar' ? "عمل خاص في منطقه الشواهده" : "Special work in Al-Shawahdeh area",
+      category: language === 'ar' ? "أعمال الطرق" : "Road Works",
+      location: language === 'ar' ? "منطقة الشواهده" : "Al-Shawahdeh area",
+      year: "2024",
+      main_image: "/lovable-uploads/47ba2542-ff4e-409b-aa2f-8e0c3e0414c8.png",
+      image_urls: [
+        "/lovable-uploads/47ba2542-ff4e-409b-aa2f-8e0c3e0414c8.png",
+        "/lovable-uploads/597ba30c-3457-424b-bc06-cb63d3405443.png",
+        "/lovable-uploads/c0c12c3e-7832-489f-9bea-37d3e38cbdf5.png"
+      ],
+      description: language === 'ar' 
+        ? "أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الشواهده\n🗓️ الأحد 11 فبراير 2024م" 
+        : "Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Shawahda\n🗓️ Sunday, February 11, 2024",
+      language: language
     }
   ];
 
-  // Use fallback projects if there's no data or there's an error
   const projects = (!supabaseProjects || supabaseProjects.length === 0 || error) ? fallbackProjects : supabaseProjects;
 
-  // Add fallback projects to Supabase if none exist
   useEffect(() => {
     const addFallbackProjects = async () => {
       if (!supabaseProjects || supabaseProjects.length === 0) {
         try {
-          // Check if we already have projects in different language
           const { data } = await supabase
             .from('projects')
             .select('count')
             .single();
           
-          // Only add fallbacks if no projects exist at all
           if (!data || data.count === 0) {
             await supabase.from('projects').insert(fallbackProjects);
           }
@@ -157,7 +169,6 @@ const Projects = () => {
     setActiveProject(null);
   };
 
-  // Image error handler function
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = "/placeholder.svg";
     e.currentTarget.classList.add("border", "border-gray-200");
@@ -206,7 +217,6 @@ const Projects = () => {
         )}
       </div>
 
-      {/* Project Details Modal */}
       {activeProject !== null && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div 
