@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -117,23 +116,6 @@ const Projects = () => {
         "/lovable-uploads/8565d59c-768a-4dd7-b61d-266c66f6c3ed.png"
       ],
       description: language === 'ar' ? "تنفيذ أعمال رش طبقة M.C.O للطرق لتحسين جودتها ومتانتها وتعزيز البنية التحتية للطرق." : "Implementation of M.C.O layer spraying works for roads to improve quality, durability and enhance road infrastructure.",
-      language: language
-    },
-    {
-      id: '6',
-      title: language === 'ar' ? "عمل خاص في منطقه الشواهده" : "Special work in Al-Shawahdeh area",
-      category: language === 'ar' ? "أعمال الطرق" : "Road Works",
-      location: language === 'ar' ? "منطقة الشواهده" : "Al-Shawahdeh area",
-      year: "2024",
-      main_image: "/lovable-uploads/47ba2542-ff4e-409b-aa2f-8e0c3e0414c8.png",
-      image_urls: [
-        "/lovable-uploads/47ba2542-ff4e-409b-aa2f-8e0c3e0414c8.png",
-        "/lovable-uploads/597ba30c-3457-424b-bc06-cb63d3405443.png",
-        "/lovable-uploads/c0c12c3e-7832-489f-9bea-37d3e38cbdf5.png"
-      ],
-      description: language === 'ar' 
-        ? "أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الشواهده\n🗓️ الأحد 11 فبراير 2024م" 
-        : "Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Shawahda\n🗓️ Sunday, February 11, 2024",
       language: language
     }
   ];
