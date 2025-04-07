@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -93,7 +94,8 @@ const Testimonials = () => {
         "/lovable-uploads/e3c4f0f2-39e2-4c28-8d27-ce5ded87826a.png",
         "/lovable-uploads/0f038d55-e2ba-4179-ad1d-4d3d26c25c45.png",
         "/lovable-uploads/2a59cad9-10ce-4315-abdf-dac4dd7ea164.png",
-        "/lovable-uploads/732bc960-649d-4596-8e74-b2e8f9363c7d.png"
+        "/lovable-uploads/732bc960-649d-4596-8e74-b2e8f9363c7d.png",
+        "/lovable-uploads/017686ec-46f3-4c7b-90c3-24855d28e2d8.png"
       ]
     }
   ];
@@ -145,13 +147,13 @@ const Testimonials = () => {
                 className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 mb-10"
               >
                 <div className="mb-6">
-                  <p className="text-white mb-6">
+                  <p className="text-white mb-6 text-lg">
                     "{testimonial.content}"
                   </p>
                   
-                  <div className="mb-6 flex justify-between items-center">
+                  <div className="mb-6 flex flex-wrap justify-between items-center gap-4">
                     <div>
-                      <p className="font-bold text-white">{testimonial.author}</p>
+                      <p className="font-bold text-white text-xl">{testimonial.author}</p>
                       {testimonial.role && testimonial.company && (
                         <p className="text-vce-red">
                           {testimonial.role}, {testimonial.company}
@@ -164,7 +166,7 @@ const Testimonials = () => {
                         href={testimonial.socialLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-white hover:text-vce-red flex items-center gap-2 transition-colors"
+                        className="text-white hover:text-vce-red flex items-center gap-2 transition-colors bg-vce-blue/40 px-4 py-2 rounded-full hover:bg-vce-blue/60"
                       >
                         <span>{language === 'ar' ? "عرض المنشور على فيسبوك" : "View Facebook Post"}</span>
                         <ExternalLink size={16} />
@@ -173,18 +175,25 @@ const Testimonials = () => {
                   </div>
 
                   {testimonial.images && testimonial.images.length > 0 && (
-                    <div className="mt-6">
-                      <Carousel className="w-full">
+                    <div className="mt-8 bg-black/20 p-4 rounded-lg">
+                      <Carousel 
+                        className="w-full"
+                        opts={{
+                          align: "start",
+                          loop: true,
+                        }}
+                      >
                         <CarouselContent>
                           {testimonial.images.map((image, index) => (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                               <div className="p-1">
-                                <Card>
-                                  <CardContent className="flex aspect-square items-center justify-center p-0">
+                                <Card className="border-0 shadow-xl overflow-hidden">
+                                  <CardContent className="flex aspect-square p-0">
                                     <img 
                                       src={image}
                                       alt={`${testimonial.author} project image ${index + 1}`}
-                                      className="w-full h-full object-cover rounded-lg"
+                                      className="w-full h-full object-cover"
+                                      loading="lazy"
                                       onError={(e) => {
                                         e.currentTarget.src = "/placeholder.svg";
                                         e.currentTarget.classList.add("border", "border-gray-200");
@@ -196,8 +205,8 @@ const Testimonials = () => {
                             </CarouselItem>
                           ))}
                         </CarouselContent>
-                        <CarouselPrevious className="left-2 bg-white/20 hover:bg-white/40 border-none text-white" />
-                        <CarouselNext className="right-2 bg-white/20 hover:bg-white/40 border-none text-white" />
+                        <CarouselPrevious />
+                        <CarouselNext />
                       </Carousel>
                     </div>
                   )}
