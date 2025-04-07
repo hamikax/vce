@@ -71,7 +71,7 @@ const Projects = () => {
         "/lovable-uploads/eeb56569-810c-4bc9-9069-c1c8f094329e.png",
         "/lovable-uploads/bd310ad2-71e1-4ace-86e8-a2621b68a29e.png"
       ],
-      description: language === 'ar' ? "مشروع تطوير البنية التحتية لرصف الطرق في منتجع مصراتة السياحي، مع تركيب على جودة الطرق والمناظر الطبيعية المحيطة." : "Infrastructure development project for road paving in Misurata Resort, with a focus on road quality and surrounding landscapes.",
+      description: language === 'ar' ? "مشروع تطوير البنية التحتية لرصف الطرق في منتجع مصراتة السياحي، مع تركيز على جودة الطرق والمناظر الطبيعية المحيطة." : "Infrastructure development project for road paving in Misurata Resort, with a focus on road quality and surrounding landscapes.",
       language: language
     },
     {
@@ -124,14 +124,16 @@ const Projects = () => {
       title: language === 'ar' ? "عمل خاص في منطقه الشواهده" : "Special work in Al-Shawahdeh area",
       category: language === 'ar' ? "أعمال الطرق" : "Road Works",
       location: language === 'ar' ? "منطقة الشواهده" : "Al-Shawahdeh area",
-      year: "2021",
-      main_image: "/lovable-uploads/fe9d4a13-878b-4e19-baac-233cf804c1db.png",
+      year: "2024",
+      main_image: "/lovable-uploads/47ba2542-ff4e-409b-aa2f-8e0c3e0414c8.png",
       image_urls: [
-        "/lovable-uploads/fe9d4a13-878b-4e19-baac-233cf804c1db.png",
-        "/lovable-uploads/aad138d2-d444-4021-a89a-87463640c317.png",
-        "/lovable-uploads/a33e8390-8bc8-4293-acc2-a2bf5501e2f9.png"
+        "/lovable-uploads/47ba2542-ff4e-409b-aa2f-8e0c3e0414c8.png",
+        "/lovable-uploads/597ba30c-3457-424b-bc06-cb63d3405443.png",
+        "/lovable-uploads/c0c12c3e-7832-489f-9bea-37d3e38cbdf5.png"
       ],
-      description: language === 'ar' ? "مشروع طرق متخصص في منطقة الشواهدة يتضمن تحسين البنية التحتية وتطوير شبكة الطرق المحلية." : "Specialized road project in Al-Shawahdeh area including infrastructure improvement and development of the local road network.",
+      description: language === 'ar' 
+        ? "أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الشواهده\n🗓️ الأحد 11 فبراير 2024م" 
+        : "Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Shawahda\n🗓️ Sunday, February 11, 2024",
       language: language
     }
   ];
