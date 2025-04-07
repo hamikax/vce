@@ -5,6 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { ExternalLink } from 'lucide-react';
 
 interface Testimonial {
   id: string;
@@ -15,6 +16,7 @@ interface Testimonial {
   language: string;
   images?: string[];
   isGovernment?: boolean;
+  socialLink?: string;
 }
 
 const Testimonials = () => {
@@ -83,11 +85,14 @@ const Testimonials = () => {
       company: language === 'ar' ? "القطاع الحكومي" : "Government Sector",
       language: language,
       isGovernment: true,
+      socialLink: "https://www.facebook.com/share/1Yy6AMLosf/?mibextid=wwXIfr",
       images: [
         "/lovable-uploads/21b15895-16bc-4bb7-a0c7-86b8ecf02f4c.png",
         "/lovable-uploads/908bbc3c-e5b0-4647-80ed-809b15c21a5b.png",
         "/lovable-uploads/4db305e7-643d-46d5-a8cf-c7869a60ef94.png",
-        "/lovable-uploads/637ab766-0ca3-4839-a145-c7059bbf6666.png"
+        "/lovable-uploads/637ab766-0ca3-4839-a145-c7059bbf6666.png",
+        "/lovable-uploads/30eed758-6079-4c7b-a37e-3051a66eee3c.png",
+        "/lovable-uploads/e3c4f0f2-39e2-4c28-8d27-ce5ded87826a.png"
       ]
     }
   ];
@@ -148,12 +153,26 @@ const Testimonials = () => {
                     "{testimonial.content}"
                   </p>
                   
-                  <div className="mb-6">
-                    <p className="font-bold text-white">{testimonial.author}</p>
-                    {testimonial.role && testimonial.company && (
-                      <p className="text-vce-red">
-                        {testimonial.role}, {testimonial.company}
-                      </p>
+                  <div className="mb-6 flex justify-between items-center">
+                    <div>
+                      <p className="font-bold text-white">{testimonial.author}</p>
+                      {testimonial.role && testimonial.company && (
+                        <p className="text-vce-red">
+                          {testimonial.role}, {testimonial.company}
+                        </p>
+                      )}
+                    </div>
+
+                    {testimonial.socialLink && (
+                      <a 
+                        href={testimonial.socialLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-white hover:text-vce-red flex items-center gap-2 transition-colors"
+                      >
+                        <span>{language === 'ar' ? "عرض المنشور على فيسبوك" : "View Facebook Post"}</span>
+                        <ExternalLink size={16} />
+                      </a>
                     )}
                   </div>
 
