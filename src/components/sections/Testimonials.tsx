@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -43,7 +42,6 @@ const Testimonials = () => {
     staleTime: 60 * 1000, // 1 minute
   });
 
-  // Fallback testimonials to use when there's no data from Supabase
   const fallbackTestimonials = [
     {
       id: '1',
@@ -92,26 +90,25 @@ const Testimonials = () => {
         "/lovable-uploads/4db305e7-643d-46d5-a8cf-c7869a60ef94.png",
         "/lovable-uploads/637ab766-0ca3-4839-a145-c7059bbf6666.png",
         "/lovable-uploads/30eed758-6079-4c7b-a37e-3051a66eee3c.png",
-        "/lovable-uploads/e3c4f0f2-39e2-4c28-8d27-ce5ded87826a.png"
+        "/lovable-uploads/e3c4f0f2-39e2-4c28-8d27-ce5ded87826a.png",
+        "/lovable-uploads/0f038d55-e2ba-4179-ad1d-4d3d26c25c45.png",
+        "/lovable-uploads/2a59cad9-10ce-4315-abdf-dac4dd7ea164.png",
+        "/lovable-uploads/732bc960-649d-4596-8e74-b2e8f9363c7d.png"
       ]
     }
   ];
 
-  // Use fallback testimonials if there's no data or there's an error
   const displayTestimonials = (!testimonials || testimonials.length === 0 || error) ? fallbackTestimonials : testimonials;
 
-  // Add fallback testimonials to Supabase if none exist
   useEffect(() => {
     const addFallbackTestimonials = async () => {
       if (!testimonials || testimonials.length === 0) {
         try {
-          // Check if we already have testimonials in different language
           const { data } = await supabase
             .from('testimonials')
             .select('count')
             .single();
           
-          // Only add fallbacks if no testimonials exist at all
           if (!data || data.count === 0) {
             await supabase.from('testimonials').insert(fallbackTestimonials);
           }
@@ -136,7 +133,6 @@ const Testimonials = () => {
           {t('testimonials.title')}
         </h2>
         
-        {/* Government Testimonials */}
         {governmentTestimonials.length > 0 && (
           <div className="mb-16" dir={textDirection}>
             <h3 className="text-2xl font-bold mb-8 text-white opacity-90 text-center">
@@ -211,7 +207,6 @@ const Testimonials = () => {
           </div>
         )}
         
-        {/* Regular Testimonials */}
         <div className={`grid md:grid-cols-3 gap-8`} dir={textDirection}>
           {regularTestimonials.map((testimonial) => (
             <div 
