@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useQuery } from '@tanstack/react-query';
+import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 interface Testimonial {
   id: string;
@@ -11,6 +13,8 @@ interface Testimonial {
   company: string | null;
   content: string;
   language: string;
+  images?: string[];
+  isGovernment?: boolean;
 }
 
 const Testimonials = () => {
@@ -68,6 +72,23 @@ const Testimonials = () => {
       role: language === 'ar' ? "مدير العمليات" : "Operations Director",
       company: language === 'ar' ? "المجموعة الصناعية الليبية" : "Libyan Industrial Group",
       language: language
+    },
+    {
+      id: '4',
+      content: language === 'ar'
+        ? "مشروع انشاء مظلات وتصريف مياه الأمطار بمحطات الوقود ومحطة القاعدة والفرع ومحطة ايشفاشا ومحطة المرقب ومحطة الشموخ بشركة البريقة لتسويق النفط. تم انجاز المشروع بنجاح والشكر موصول لفريق شركتكم المثالي."
+        : "Project to construct shelters and rainwater drainage at fuel stations including Base Station, Branch Station, Ishfasha Station, Murqub Station, and Al-Shumukh Station at Brega Oil Marketing Company. The project was successfully completed, and thanks to your company's exemplary team.",
+      author: language === 'ar' ? "شركة البريقة لتسويق النفط" : "Brega Oil Marketing Company",
+      role: language === 'ar' ? "إدارة المشاريع" : "Project Management",
+      company: language === 'ar' ? "القطاع الحكومي" : "Government Sector",
+      language: language,
+      isGovernment: true,
+      images: [
+        "/lovable-uploads/21b15895-16bc-4bb7-a0c7-86b8ecf02f4c.png",
+        "/lovable-uploads/908bbc3c-e5b0-4647-80ed-809b15c21a5b.png",
+        "/lovable-uploads/4db305e7-643d-46d5-a8cf-c7869a60ef94.png",
+        "/lovable-uploads/637ab766-0ca3-4839-a145-c7059bbf6666.png"
+      ]
     }
   ];
 
@@ -100,6 +121,9 @@ const Testimonials = () => {
     }
   }, [isLoading, testimonials, error]);
 
+  const governmentTestimonials = displayTestimonials.filter(t => t.isGovernment);
+  const regularTestimonials = displayTestimonials.filter(t => !t.isGovernment);
+
   return (
     <section className="bg-vce-blue py-16 sm:py-24">
       <div className="vce-container">
@@ -107,8 +131,70 @@ const Testimonials = () => {
           {t('testimonials.title')}
         </h2>
         
+        {/* Government Testimonials */}
+        {governmentTestimonials.length > 0 && (
+          <div className="mb-16" dir={textDirection}>
+            <h3 className="text-2xl font-bold mb-8 text-white opacity-90 text-center">
+              {language === 'ar' ? "مشاريعنا الحكومية" : "Our Government Projects"}
+            </h3>
+
+            {governmentTestimonials.map((testimonial) => (
+              <div 
+                key={testimonial.id}
+                className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 mb-10"
+              >
+                <div className="mb-6">
+                  <p className="text-white mb-6">
+                    "{testimonial.content}"
+                  </p>
+                  
+                  <div className="mb-6">
+                    <p className="font-bold text-white">{testimonial.author}</p>
+                    {testimonial.role && testimonial.company && (
+                      <p className="text-vce-red">
+                        {testimonial.role}, {testimonial.company}
+                      </p>
+                    )}
+                  </div>
+
+                  {testimonial.images && testimonial.images.length > 0 && (
+                    <div className="mt-6">
+                      <Carousel className="w-full">
+                        <CarouselContent>
+                          {testimonial.images.map((image, index) => (
+                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                              <div className="p-1">
+                                <Card>
+                                  <CardContent className="flex aspect-square items-center justify-center p-0">
+                                    <img 
+                                      src={image}
+                                      alt={`${testimonial.author} project image ${index + 1}`}
+                                      className="w-full h-full object-cover rounded-lg"
+                                      onError={(e) => {
+                                        e.currentTarget.src = "/placeholder.svg";
+                                        e.currentTarget.classList.add("border", "border-gray-200");
+                                      }}
+                                    />
+                                  </CardContent>
+                                </Card>
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="left-2 bg-white/20 hover:bg-white/40 border-none text-white" />
+                        <CarouselNext className="right-2 bg-white/20 hover:bg-white/40 border-none text-white" />
+                      </Carousel>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+        
+        {/* Regular Testimonials */}
         <div className={`grid md:grid-cols-3 gap-8`} dir={textDirection}>
-          {displayTestimonials.map((testimonial) => (
+          {regularTestimonials.map((testimonial) => (
             <div 
               key={testimonial.id}
               className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20"
