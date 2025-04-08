@@ -59,6 +59,8 @@ const translations = {
     'footer.phone': 'هاتف: +218 91-555-5555',
     'footer.email': 'البريد الإلكتروني: info@vce-co.com',
     'footer.copyright': 'جميع الحقوق محفوظة © {year} شركة فيفيان للإنشاءات والأعمال الهندسية',
+    'testimonials.title': 'اخبرنا',
+    'testimonials.viewOnFacebook': 'عرض على فيسبوك',
   },
   en: {
     'language.switch': 'العربية',
@@ -113,6 +115,8 @@ const translations = {
     'footer.phone': 'Phone: +218 91-555-5555',
     'footer.email': 'Email: info@vce-co.com',
     'footer.copyright': 'All rights reserved © {year} Vivian Construction & Engineering Services',
+    'testimonials.title': 'Testimonials',
+    'testimonials.viewOnFacebook': 'View on Facebook',
   }
 };
 
@@ -125,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeServicesSection();
   initializeEquipmentServicesSection();
   initializeProjectsSection();
+  initializeTestimonialsSection();
   initializeContactSection();
   initializeFooter();
   initializeLanguageSwitcher();
@@ -568,7 +573,7 @@ function initializeEquipmentServicesSection() {
     link.textContent = service.linkText;
     
     const linkIcon = document.createElement('span');
-    linkIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
+    linkIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 00-2 2H5a2 2 0 00-2-2V8a2 2 0 002-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
     
     link.appendChild(linkIcon);
     
@@ -904,6 +909,164 @@ function initializeProjectsSection() {
   
   // Render projects
   renderProjects(fallbackProjects);
+}
+
+// Initialize testimonials section
+function initializeTestimonialsSection() {
+  const testimonialsTitle = document.getElementById('testimonials-title');
+  const testimonialCarousel = document.getElementById('testimonials-carousel');
+  const regularTestimonials = document.getElementById('regular-testimonials');
+  
+  // Set title
+  testimonialsTitle.textContent = currentLanguage === 'ar' ? 'اخبرنا' : 'Testimonials';
+  
+  // Set direction
+  testimonialCarousel.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
+  regularTestimonials.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
+  
+  // Clear containers
+  testimonialCarousel.innerHTML = '';
+  regularTestimonials.innerHTML = '';
+  
+  // Government testimonials data
+  const governmentTestimonials = [
+    {
+      id: 'gov-1',
+      author: 'جهاز تنفيذ مشروعات المواصلات مصراتة',
+      company: 'حكومة الوحدة الوطنية الليبية',
+      content: currentLanguage === 'ar' 
+        ? 'أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الرويسـات\n🗓️ الأحد 11 فبراير 2024م' 
+        : 'Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Ruwisat\n🗓️ Sunday, February 11, 2024',
+      location: currentLanguage === 'ar' ? 'الرويسـات، مصراتة' : 'Al-Ruwisat, Misurata',
+      images: [
+        "/lovable-uploads/e1d923a0-2e74-4a50-8fd4-72848946d1ba.png",
+        "/lovable-uploads/318cdbb4-7767-4d90-a851-0699250cefd0.png",
+        "/lovable-uploads/0f2be7a5-d88e-4b0b-93ba-79b0ca9127b5.png",
+        "/lovable-uploads/16a007e5-6451-4392-967e-eeb396e40f48.png"
+      ],
+      socialLink: "https://www.facebook.com/share/p/16UjuPuATY/"
+    },
+    {
+      id: 'gov-2',
+      author: 'مصلحة الطرق و الجسور',
+      company: 'وزارة المواصلات',
+      content: currentLanguage === 'ar' 
+        ? 'حضور مدير عام الشركة السيد/ إسماعيل إبراهيم أبوزهو لاجتماع أقيم في موقع مصلحة الطرق و الجسور فرع مصراتة مع وزير المواصلات السيد/ محمد الشهوبي.' 
+        : 'Attendance of the company\'s general manager, Mr. Ismail Ibrahim Abu Zaho, at a meeting held at the Roads and Bridges Authority, Misurata branch, with the Minister of Transportation, Mr. Muhammad Al-Shahoubi.',
+      location: currentLanguage === 'ar' ? 'مصراتة' : 'Misurata',
+      images: [
+        "/lovable-uploads/7718579f-007a-4f4c-baab-607497a6465a.png",
+        "/lovable-uploads/bc2d0966-2e45-4ba9-8683-df283705b1b7.png"
+      ]
+    }
+  ];
+  
+  // Regular testimonials data
+  const regularTestimonialsData = [
+    // You can add regular testimonials here if needed
+  ];
+  
+  // Render government testimonials
+  governmentTestimonials.forEach(testimonial => {
+    const testimonialItem = document.createElement('div');
+    testimonialItem.className = "flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-4";
+    
+    testimonialItem.innerHTML = `
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 h-full flex flex-col">
+        ${testimonial.images && testimonial.images.length > 0 ? `
+          <div class="mb-4 h-48 overflow-hidden rounded-md">
+            <img 
+              src="${testimonial.images[0]}" 
+              alt="${testimonial.author}"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        ` : ''}
+        
+        <p class="text-white mb-4 italic whitespace-pre-line flex-grow">
+          "${testimonial.content}"
+        </p>
+        
+        <div>
+          <p class="font-bold text-white">${testimonial.author}</p>
+          ${testimonial.company ? `<p class="text-vce-red">${testimonial.company}</p>` : ''}
+          ${testimonial.location ? `<p class="text-white/80 text-sm mt-1">${testimonial.location}</p>` : ''}
+          ${testimonial.socialLink ? `
+            <button 
+              class="mt-4 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded flex items-center"
+              onclick="window.open('${testimonial.socialLink}', '_blank')"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              ${currentLanguage === 'ar' ? 'عرض على فيسبوك' : 'View on Facebook'}
+            </button>
+          ` : ''}
+        </div>
+      </div>
+    `;
+    
+    testimonialCarousel.appendChild(testimonialItem);
+  });
+  
+  // Render regular testimonials
+  regularTestimonialsData.forEach(testimonial => {
+    const testimonialItem = document.createElement('div');
+    testimonialItem.className = "bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20";
+    
+    testimonialItem.innerHTML = `
+      <div class="mb-6">
+        <svg class="h-8 w-8 text-vce-red" fill="currentColor" viewBox="0 0 32 32">
+          <path d="M10 8v12h12v-12h-12zM8 6h16v16h-16v-16z"></path>
+          <path d="M16 0v2h-16v16h2v-14h14v-4z"></path>
+        </svg>
+      </div>
+      
+      <p class="text-white mb-6 italic">"${testimonial.content}"</p>
+      
+      <div>
+        <p class="font-bold text-white">${testimonial.author}</p>
+        ${testimonial.role && testimonial.company ? `
+          <p class="text-vce-red">${testimonial.role}, ${testimonial.company}</p>
+        ` : ''}
+      </div>
+    `;
+    
+    regularTestimonials.appendChild(testimonialItem);
+  });
+  
+  // If there are no regular testimonials, hide the container
+  if (regularTestimonialsData.length === 0) {
+    regularTestimonials.style.display = 'none';
+  }
+  
+  // Carousel functionality
+  const prevButton = document.getElementById('prev-testimonial');
+  const nextButton = document.getElementById('next-testimonial');
+  let currentSlide = 0;
+  const slideCount = governmentTestimonials.length;
+  
+  function updateCarousel() {
+    const slideWidth = testimonialCarousel.querySelector('div').offsetWidth;
+    testimonialCarousel.style.transform = `translateX(${currentLanguage === 'ar' ? '' : '-'}${currentSlide * slideWidth}px)`;
+  }
+  
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideCount;
+    updateCarousel();
+  }
+  
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+    updateCarousel();
+  }
+  
+  prevButton.addEventListener('click', prevSlide);
+  nextButton.addEventListener('click', nextSlide);
+  
+  // Initial update
+  setTimeout(updateCarousel, 100); // Short delay to ensure layout is complete
+  
+  // Auto-rotate every 5 seconds
+  setInterval(nextSlide, 5000);
 }
 
 // Initialize contact section
