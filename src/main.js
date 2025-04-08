@@ -1,4 +1,3 @@
-
 // Main JavaScript entry point for the VCE website
 import './styles.css';
 
@@ -465,7 +464,7 @@ function initializeServicesSection() {
       title: t('services.projectManagement'),
       description: t('services.projectManagement.desc'),
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
             </svg>`,
     },
     {
@@ -609,7 +608,7 @@ function initializeProjectsSection() {
         "/lovable-uploads/58819374-01be-4ebd-a520-5680cf78f10f.png",
         "/lovable-uploads/47f3dc8c-3817-48b0-80d1-10826321dcd6.png"
       ],
-      description: currentLanguage === 'ar' ? "مشروع رصف طرق رئيسي لتحسين البنية التحتية للنقل في منطقة شارع السعدون بمصراتة." : "A major road paving project to improve transportation infrastructure in the Saadoun Street area of Misurata.",
+      description: currentLanguage === 'ar' ? "مشروع رصف طر�� رئيسي لتحسين البنية التحتية للنقل في منطقة شارع السعدون بمصراتة." : "A major road paving project to improve transportation infrastructure in the Saadoun Street area of Misurata.",
       language: currentLanguage
     },
     {
