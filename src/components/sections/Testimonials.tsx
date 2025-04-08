@@ -197,11 +197,7 @@ const Testimonials = () => {
           </div>
         )}
 
-        {regularTestimonials.length === 0 && !isLoading && !error && (
-          <div className="text-center text-white opacity-70">
-            <p>{language === 'ar' ? "لا توجد شهادات متاحة حاليًا" : "No testimonials available at the moment"}</p>
-          </div>
-        )}
+        {/* Removed the "No testimonials available" message as requested */}
       </div>
     </section>
   );

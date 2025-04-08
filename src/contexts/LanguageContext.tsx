@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'ar' | 'en';
@@ -65,7 +64,7 @@ const translations = {
     'projects.contactUs': 'اتصل بنا',
     
     // Testimonials
-    'testimonials.title': 'ماذا يقول عملاؤنا',
+    'testimonials.title': 'اخبرنا',
     
     // Contact
     'contact.title': 'اتصل بـ VCE',
@@ -161,7 +160,7 @@ const translations = {
     'projects.contactUs': 'Contact Us',
     
     // Testimonials
-    'testimonials.title': 'What Our Clients Say',
+    'testimonials.title': 'Testimonials',
     
     // Contact
     'contact.title': 'Contact VCE',
