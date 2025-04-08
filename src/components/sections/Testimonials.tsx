@@ -1,11 +1,11 @@
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { ExternalLink, Facebook } from 'lucide-react';
+import { Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface Testimonial {
@@ -56,44 +56,58 @@ const Testimonials = () => {
     : [];
 
   // Fallback testimonial for government client when there's none in the database
-  const fallbackGovernmentTestimonial = {
-    id: 'gov-1',
-    author: 'جهاز تنفيذ مشروعات المواصلات مصراتة',
-    company: 'حكومة الوحدة الوطنية الليبية',
-    content: language === 'ar' 
-      ? 'أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الرويسـات\n🗓️ الأحد 11 فبراير 2024م' 
-      : 'Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Ruwisat\n🗓️ Sunday, February 11, 2024',
-    role: null,
-    language: language,
-    isGovernment: true,
-    location: language === 'ar' ? 'الرويسـات، مصراتة' : 'Al-Ruwisat, Misurata',
-    images: [
-      "/lovable-uploads/e1d923a0-2e74-4a50-8fd4-72848946d1ba.png",
-      "/lovable-uploads/318cdbb4-7767-4d90-a851-0699250cefd0.png",
-      "/lovable-uploads/0f2be7a5-d88e-4b0b-93ba-79b0ca9127b5.png",
-      "/lovable-uploads/16a007e5-6451-4392-967e-eeb396e40f48.png"
-    ],
-    socialLink: "https://www.facebook.com/share/p/16UjuPuATY/"
-  };
+  const fallbackGovernmentTestimonials = [
+    {
+      id: 'gov-1',
+      author: 'جهاز تنفيذ مشروعات المواصلات مصراتة',
+      company: 'حكومة الوحدة الوطنية الليبية',
+      content: language === 'ar' 
+        ? 'أعمال تنفيذ مجموعة طرق بالرابط بين شارع بنغازي وساحات مسجد بن رمضان، تنفيذ شركة فيفيـان، وإشراف جهاز تنفيذ مشروعات المواصلات مصراتة.\n📍الرويسـات\n🗓️ الأحد 11 فبراير 2024م' 
+        : 'Implementation of a group of roads linking Benghazi Street and Ben Ramadan Mosque squares, executed by Vivian Company, and supervised by the Misurata Transportation Projects Implementation Agency.\n📍Al-Ruwisat\n🗓️ Sunday, February 11, 2024',
+      role: null,
+      language: language,
+      isGovernment: true,
+      location: language === 'ar' ? 'الرويسـات، مصراتة' : 'Al-Ruwisat, Misurata',
+      images: [
+        "/lovable-uploads/e1d923a0-2e74-4a50-8fd4-72848946d1ba.png",
+        "/lovable-uploads/318cdbb4-7767-4d90-a851-0699250cefd0.png",
+        "/lovable-uploads/0f2be7a5-d88e-4b0b-93ba-79b0ca9127b5.png",
+        "/lovable-uploads/16a007e5-6451-4392-967e-eeb396e40f48.png"
+      ],
+      socialLink: "https://www.facebook.com/share/p/16UjuPuATY/"
+    },
+    {
+      id: 'gov-2',
+      author: 'مصلحة الطرق و الجسور',
+      company: 'وزارة المواصلات',
+      content: language === 'ar' 
+        ? 'حضور مدير عام الشركة السيد/ إسماعيل إبراهيم أبوزهو لاجتماع أقيم في موقع مصلحة الطرق و الجسور فرع مصراتة مع وزير المواصلات السيد/ محمد الشهوبي.' 
+        : 'Attendance of the company\'s general manager, Mr. Ismail Ibrahim Abu Zaho, at a meeting held at the Roads and Bridges Authority, Misurata branch, with the Minister of Transportation, Mr. Muhammad Al-Shahoubi.',
+      role: null,
+      language: language,
+      isGovernment: true,
+      location: language === 'ar' ? 'مصراتة' : 'Misurata',
+      images: [
+        "/lovable-uploads/7718579f-007a-4f4c-baab-607497a6465a.png",
+        "/lovable-uploads/bc2d0966-2e45-4ba9-8683-df283705b1b7.png"
+      ]
+    }
+  ];
 
   // Use fallback if no government testimonials exist
   const displayGovernmentTestimonials = governmentTestimonials.length > 0 
     ? governmentTestimonials 
-    : [fallbackGovernmentTestimonial];
+    : fallbackGovernmentTestimonials;
 
   return (
     <section className="bg-vce-blue py-16 sm:py-24">
       <div className="vce-container">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white">
-          {t('testimonials.title')}
+          {language === 'ar' ? 'اخبرنا' : 'Testimonials'}
         </h2>
         
         {displayGovernmentTestimonials.length > 0 && (
           <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center text-white">
-              {language === 'ar' ? 'مشاريعنا الحكومية' : 'Our Government Projects'}
-            </h3>
-            
             <div className="relative px-10" dir={textDirection}>
               <Carousel
                 opts={{
