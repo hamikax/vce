@@ -23,8 +23,10 @@
   --radius: 0.5rem;
 }
 
-/* Include all the compiled Tailwind classes directly */
-/* This is a simplified version that includes the core styles */
+/* Import Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 body {
   margin: 0;
@@ -34,58 +36,50 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Layout utilities */
-.flex { display: flex; }
-.items-center { align-items: center; }
-.justify-center { justify-content: center; }
-.justify-between { justify-between: space-between; }
-.flex-col { flex-direction: column; }
-.flex-wrap { flex-wrap: wrap; }
-.w-full { width: 100%; }
-.h-screen { height: 100vh; }
-.max-w-7xl { max-width: 80rem; }
-.mx-auto { margin-left: auto; margin-right: auto; }
-.px-4 { padding-left: 1rem; padding-right: 1rem; }
-.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-.gap-4 { gap: 1rem; }
-.space-x-4 > * + * { margin-left: 1rem; }
-.space-y-4 > * + * { margin-top: 1rem; }
+/* Define VCE colors */
+.bg-vce-blue {
+  background-color: #0A2463;
+}
 
-/* Typography */
-.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
-.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
-.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-.text-2xl { font-size: 1.5rem; line-height: 2rem; }
-.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
-.text-5xl { font-size: 3rem; line-height: 1; }
-.text-6xl { font-size: 3.75rem; line-height: 1; }
-.font-bold { font-weight: 700; }
-.text-center { text-align: center; }
-.text-white { color: white; }
+.bg-vce-red {
+  background-color: #8B0000;
+}
 
-/* Positioning */
-.fixed { position: fixed; }
-.absolute { position: absolute; }
-.relative { position: relative; }
-.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-.z-50 { z-index: 50; }
-.z-40 { z-index: 40; }
-.z-10 { z-index: 10; }
-.top-4 { top: 1rem; }
-.right-4 { right: 1rem; }
-.bottom-10 { bottom: 2.5rem; }
-.left-1\/2 { left: 50%; }
-.transform { transform: translateX(-50%); }
+.text-vce-blue {
+  color: #0A2463;
+}
 
-/* Background */
-.bg-transparent { background-color: transparent; }
-.bg-white { background-color: white; }
-.bg-gray-50 { background-color: #f9fafb; }
-.bg-black { background-color: #000000; }
-.bg-vce-blue { background-color: #0A2463; }
-.bg-vce-red { background-color: #8B0000; }
-.opacity-40 { opacity: 0.4; }
+.text-vce-red {
+  color: #8B0000;
+}
+
+.text-vce-black {
+  color: #333333;
+}
+
+.hover\:bg-vce-blue:hover {
+  background-color: #0A2463;
+}
+
+.hover\:bg-vce-red:hover {
+  background-color: #8B0000;
+}
+
+.hover\:text-vce-blue:hover {
+  color: #0A2463;
+}
+
+.hover\:text-vce-red:hover {
+  color: #8B0000;
+}
+
+.border-vce-blue {
+  border-color: #0A2463;
+}
+
+.border-vce-red {
+  border-color: #8B0000;
+}
 
 /* VCE Custom classes */
 .vce-container {
@@ -199,51 +193,6 @@ body {
 
 .vce-btn-outline:active {
   transform: scale(0.95);
-}
-
-/* Define VCE colors */
-.bg-vce-blue {
-  background-color: #0A2463;
-}
-
-.bg-vce-red {
-  background-color: #8B0000;
-}
-
-.text-vce-blue {
-  color: #0A2463;
-}
-
-.text-vce-red {
-  color: #8B0000;
-}
-
-.text-vce-black {
-  color: #333333;
-}
-
-.hover\:bg-vce-blue:hover {
-  background-color: #0A2463;
-}
-
-.hover\:bg-vce-red:hover {
-  background-color: #8B0000;
-}
-
-.hover\:text-vce-blue:hover {
-  color: #0A2463;
-}
-
-.hover\:text-vce-red:hover {
-  color: #8B0000;
-}
-
-.border-vce-blue {
-  border-color: #0A2463;
-}
-
-.border-vce-red {
-  border-color: #8B0000;
 }
 
 /* Animation classes */
