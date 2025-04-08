@@ -83,9 +83,9 @@ const Footer = () => {
           <p className="flex items-center justify-center">
             {t('footer.copyright').replace('{year}', currentYear.toString())} | 
             <img 
-              src="/lovable-uploads/9e898001-d747-4518-9ab7-ad4ed3b8d03c.png" 
+              src="/lovable-uploads/47f3dc8c-3817-48b0-80d1-10826321dcd6.png" 
               alt="SKY LO" 
-              className="h-20 ml-2 brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" 
+              className="h-40 ml-2 brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" 
             />
           </p>
         </div>

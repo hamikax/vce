@@ -1,0 +1,201 @@
+
+/* Import Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Base styles */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* VCE Custom classes */
+.vce-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .vce-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vce-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.vce-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .vce-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.vce-heading {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: #0A2463;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .vce-heading {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vce-heading {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+.vce-subheading {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #000000;
+}
+
+@media (min-width: 768px) {
+  .vce-subheading {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+.vce-btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.vce-btn-primary {
+  background-color: #8B0000;
+  color: white;
+}
+
+.vce-btn-primary:hover {
+  background-color: #FF6B6B;
+  transform: translateY(-2px);
+}
+
+.vce-btn-primary:active {
+  transform: scale(0.95);
+}
+
+.vce-btn-outline {
+  border-width: 2px;
+  border-color: #0A2463;
+  color: #0A2463;
+}
+
+.vce-btn-outline:hover {
+  background-color: #0A2463;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.vce-btn-outline:active {
+  transform: scale(0.95);
+}
+
+/* Animation classes */
+.appear-animation {
+  opacity: 0;
+  animation: appear 0.8s ease forwards;
+}
+
+.appear-animation-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.appear-animation-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.appear-animation-delay-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.button-press {
+  transition: all 0.1s ease;
+}
+
+.button-press:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
