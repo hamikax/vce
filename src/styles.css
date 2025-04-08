@@ -153,6 +153,51 @@ body {
   transform: scale(0.95);
 }
 
+/* Define VCE colors */
+.bg-vce-blue {
+  background-color: #0A2463;
+}
+
+.bg-vce-red {
+  background-color: #8B0000;
+}
+
+.text-vce-blue {
+  color: #0A2463;
+}
+
+.text-vce-red {
+  color: #8B0000;
+}
+
+.text-vce-black {
+  color: #333333;
+}
+
+.hover\:bg-vce-blue:hover {
+  background-color: #0A2463;
+}
+
+.hover\:bg-vce-red:hover {
+  background-color: #8B0000;
+}
+
+.hover\:text-vce-blue:hover {
+  color: #0A2463;
+}
+
+.hover\:text-vce-red:hover {
+  color: #8B0000;
+}
+
+.border-vce-blue {
+  border-color: #0A2463;
+}
+
+.border-vce-red {
+  border-color: #8B0000;
+}
+
 /* Animation classes */
 .appear-animation {
   opacity: 0;
@@ -189,6 +234,10 @@ body {
   50% {
     transform: rotate(3deg);
   }
+}
+
+.animate-fade-in {
+  animation: appear 0.8s ease forwards;
 }
 
 .button-press {
