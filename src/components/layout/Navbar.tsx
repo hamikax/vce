@@ -47,13 +47,13 @@ const Navbar = () => {
     >
       <div className="vce-container flex justify-between items-center">
         <div className="flex items-center">
-          <a href="#home" className="flex flex-col items-center md:items-start">
+          <a href="#home" className="flex items-center gap-2 md:gap-3">
             <img 
               src="/lovable-uploads/908bbc3c-e5b0-4647-80ed-809b15c21a5b.png" 
               alt="VCE Logo" 
               className="h-12 md:h-16 w-auto"
             />
-            <span className="hidden md:block text-sm text-vce-black mt-1">
+            <span className="hidden md:block text-sm text-vce-black max-w-[180px] leading-tight">
               {language === 'ar' ? 'شركة فيفيان للإنشاءات والاعمال الهندسية' : 'Vivian Construction & Engineering Services'}
             </span>
           </a>
