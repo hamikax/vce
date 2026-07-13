@@ -142,13 +142,12 @@ const Projects = () => {
     const addFallbackProjects = async () => {
       if (!supabaseProjects || supabaseProjects.length === 0) {
         try {
-          const { data } = await supabase
+          const { count } = await supabase
             .from('projects')
-            .select('count')
-            .single();
-          
-          if (!data || data.count === 0) {
-            await supabase.from('projects').insert(fallbackProjects);
+            .select('*', { count: 'exact', head: true });
+
+          if (!count || count === 0) {
+            await supabase.from('projects').insert(fallbackProjects as any);
           }
         } catch (error) {
           console.error('Error adding fallback projects:', error);
