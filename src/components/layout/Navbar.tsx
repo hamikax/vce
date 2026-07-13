@@ -60,16 +60,14 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center">
-          <div className="mr-8">
-            <LanguageSwitcher />
-          </div>
-          <div className={`flex space-x-6 ${language === 'ar' ? 'flex-row-reverse space-x-reverse' : ''}`} dir={textDirection}>
+        <div className="hidden md:flex items-center gap-8">
+          <LanguageSwitcher />
+          <div className="flex items-center gap-6" dir={textDirection}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-vce-blue hover:text-vce-red transition-colors duration-300 mx-3"
+                className="text-vce-blue hover:text-vce-red transition-colors duration-300"
               >
                 {link.name}
               </a>
