@@ -57,6 +57,10 @@
     @apply border-border;
   }
 
+  html {
+    font-family: 'Tajawal', system-ui, sans-serif;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
     scroll-behavior: smooth;
