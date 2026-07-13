@@ -34,23 +34,23 @@ const Hero = () => {
             "flex flex-wrap items-center text-lg md:text-xl mb-8 animate-fade-in",
             "opacity-0 [animation-delay:0.4s]"
           )}>
-            <span className={`flex items-center ${language === 'ar' ? 'mr-4' : 'mr-4'} mb-2`}>
-              <span className="text-vce-red font-bold mr-2">+20</span> {t('hero.workers')}
+            <span className="flex items-center me-4 mb-2">
+              <span className="text-vce-red font-bold me-2">+20</span> {t('hero.workers')}
             </span>
             <span className="w-2 h-2 rounded-full bg-vce-red mx-2 hidden md:block"></span>
             
-            <span className={`flex items-center ${language === 'ar' ? 'mr-4' : 'mr-4'} mb-2`}>
-              <span className="text-vce-red font-bold mr-2">+20</span> {t('hero.machines')}
+            <span className="flex items-center me-4 mb-2">
+              <span className="text-vce-red font-bold me-2">+20</span> {t('hero.machines')}
             </span>
             <span className="w-2 h-2 rounded-full bg-vce-red mx-2 hidden md:block"></span>
             
-            <span className={`flex items-center ${language === 'ar' ? 'mr-4' : 'mr-4'} mb-2`}>
-              <span className="text-vce-red font-bold mr-2">+20</span> {t('hero.projects')}
+            <span className="flex items-center me-4 mb-2">
+              <span className="text-vce-red font-bold me-2">+20</span> {t('hero.projects')}
             </span>
             <span className="w-2 h-2 rounded-full bg-vce-red mx-2 hidden md:block"></span>
             
             <span className="flex items-center mb-2">
-              <span className="text-vce-red font-bold mr-2">{t('hero.location')}</span> {t('hero.country')}
+              <span className="text-vce-red font-bold me-2">{t('hero.location')}</span> {t('hero.country')}
             </span>
           </div>
           

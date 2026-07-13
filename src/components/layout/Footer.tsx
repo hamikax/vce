@@ -33,13 +33,13 @@ const Footer = () => {
             <p className="mb-4 text-gray-300">
               {t('footer.tagline')}
             </p>
-            <div className={`flex ${language === 'ar' ? 'space-x-reverse' : 'space-x-3'}`}>
+            <div className="flex gap-3">
               {socialLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
                   aria-label={link.label}
-                  className={`bg-white/10 hover:bg-vce-red transition-colors duration-300 p-2 rounded ${language === 'ar' ? 'ml-3' : ''}`}
+                  className="bg-white/10 hover:bg-vce-red transition-colors duration-300 p-2 rounded"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
